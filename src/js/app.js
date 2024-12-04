@@ -1,14 +1,20 @@
 import '../index.html';
 import '../scss/app.scss';
 
-import { TomatoTimer } from './modules/timer.js';
+import { Task } from './modules/task.js';
+import { Tomato } from './modules/tomato.js';
 
-const timer = new TomatoTimer('Course', 2);
-console.log(timer.getID());
-console.log(timer.getName());
-console.log(timer.getCounter());
+const course = new Task('Course', 4);
+const english = new Task('English', 2);
+const reading = new Task('Reading', 1);
 
-timer.setName('English').setCounter(1);
-console.log(timer.getID());
-console.log(timer.getName());
-console.log(timer.getCounter());
+const tomato = new Tomato({
+  taskLength: 1,
+  shortBreakLength: 1,
+  longBreakLength: 2,
+  tasks: [course, english, reading],
+});
+
+tomato.activateTask(course.getID());
+tomato.startTask();
+tomato.incrementTaskCounter(course.getID());

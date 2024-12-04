@@ -1,4 +1,4 @@
-export class TomatoTimer {
+export class Task {
   #id;
   #name;
   #counter;
