@@ -1,6 +1,4 @@
-@use 'abstracts/variables';
-@use 'utilities/utilities';
-@use 'base';
-@use 'components';
-@use 'layout';
-@use 'pages';
+@use 'base/normalize' as *;
+@use 'base/fonts' as *;
+@use 'base/base' as *;
+@use 'pages/home' as *;

@@ -1,6 +1,5 @@
 import '../index.html';
 import '../scss/app.scss';
-import './modules/animation.js';
 
 import { Task } from './modules/task.js';
 import { Tomato } from './modules/tomato.js';
