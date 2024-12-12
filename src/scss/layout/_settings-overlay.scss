@@ -1,0 +1,23 @@
+@use '../abstracts/mixins' as mixins;
+
+.settings-overlay {
+  position: relative;
+  max-width: 36rem;
+  width: 100%;
+  padding: 4.375rem 2.5rem;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  color: var(--text-primary);
+  background-color: var(--background-primary);
+
+  &:modal {
+    max-width: 36rem;
+    max-height: 100%;
+  }
+
+  &__close-button-wrapper {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+}

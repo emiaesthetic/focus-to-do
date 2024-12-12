@@ -1,0 +1,86 @@
+@use '../abstracts/mixins' as mixins;
+@use '../abstracts/media' as media;
+
+.timer {
+  display: grid;
+  grid-template-columns: 30rem;
+  place-items: center;
+  row-gap: 3rem;
+  font-weight: var(--font-weight-medium);
+
+  @include media.mobile {
+    grid-template-columns: 24rem;
+    row-gap: 2rem;
+  }
+
+  &__title {
+    font-size: var(--font-size-md);
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__progress {
+    --border-width: 16px;
+    --angle: 0deg;
+
+    position: relative;
+    width: 18rem;
+    height: 18rem;
+
+    @include media.mobile {
+      --border-width: 12px;
+
+      width: 14rem;
+      height: 14rem;
+      letter-spacing: 0.075rem;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-image: conic-gradient(
+        var(--accent) var(--angle),
+        var(--background-secondary) var(--angle)
+      );
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: var(--border-width);
+      left: var(--border-width);
+      z-index: -1;
+      width: calc(100% - var(--border-width) * 2);
+      height: calc(100% - var(--border-width) * 2);
+      border-radius: 50%;
+      background-color: var(--background-primary);
+    }
+  }
+
+  &__time {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    font-size: var(--fonts-size-lg);
+    letter-spacing: 0.125rem;
+  }
+
+  &__button {
+    width: unset;
+    height: unset;
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-md);
+
+    @include media.mobile {
+      padding: 0.5rem 1.5rem;
+    }
+  }
+}
