@@ -11,12 +11,7 @@
 <body>
   <div class="app">
     <div class="app__container container">
-      <button
-        class="app__settings-button button button--settings"
-        type="button"
-        onclick="settingsOverlay.showModal()"
-        aria-label="Open settings menu"
-      >
+      <button class="app__settings-button button button--settings" type="button" aria-label="Open settings menu">
         <svg width="24" height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M9.76077 2.41476C9.8072 2.29589 9.8767 2.1884 9.98151 2.1222C10.2173 1.97327 10.755 1.7306 11.7545 1.7306C12.7541 1.7306 13.2917 1.97327 13.5276 2.1222C13.6324 2.1884 13.7018 2.29589 13.7483 2.41476C13.9086 2.82489 14.3023 3.86875 14.535 4.80029C15.2773 5.10288 15.9639 5.52308 16.5739 6.03912C17.4584 5.78476 18.517 5.62086 18.9355 5.56162C19.0567 5.54449 19.18 5.55394 19.287 5.61622C19.5276 5.75637 19.9965 6.12432 20.4962 7.03392C20.996 7.94346 21.0648 8.55405 21.06 8.84316C21.0579 8.97165 21.004 9.08863 20.9293 9.1903C20.6713 9.54143 20.0074 10.4222 19.3557 11.0998C19.4146 11.5033 19.4452 11.9165 19.4452 12.3372C19.4452 12.758 19.4146 13.1712 19.3557 13.5746C20.0074 14.2522 20.6713 15.133 20.9293 15.4841C21.004 15.5859 21.0579 15.7028 21.06 15.8313C21.0648 16.1204 20.996 16.731 20.4962 17.6406C19.9965 18.5501 19.5276 18.9181 19.287 19.0582C19.18 19.1205 19.0567 19.1299 18.9355 19.1128C18.517 19.0536 17.4584 18.8897 16.5739 18.6353C15.9639 19.1514 15.2774 19.5716 14.535 19.8742C14.3023 20.8057 13.9086 21.8496 13.7483 22.2597C13.7018 22.3786 13.6324 22.4861 13.5276 22.5523C13.2917 22.7012 12.7541 22.9439 11.7545 22.9439C10.755 22.9439 10.2173 22.7012 9.98151 22.5523C9.8767 22.4861 9.8072 22.3786 9.76077 22.2597C9.60047 21.8496 9.20674 20.8057 8.9741 19.8742C8.2317 19.5716 7.54513 19.1514 6.93512 18.6353C6.05064 18.8897 4.9921 19.0536 4.5736 19.1128C4.4524 19.1299 4.32907 19.1205 4.2221 19.0582C3.98144 18.9181 3.51261 18.5501 3.01285 17.6406C2.51307 16.731 2.44426 16.1204 2.44908 15.8313C2.45122 15.7028 2.50508 15.5859 2.57982 15.4841C2.8378 15.133 3.50173 14.2522 4.15342 13.5746C4.09444 13.1712 4.06383 12.758 4.06383 12.3372C4.06383 11.9165 4.09444 11.5033 4.15342 11.0998C3.50174 10.4222 2.8378 9.54143 2.57982 9.1903C2.50508 9.08863 2.45122 8.97165 2.44908 8.84316C2.44426 8.55405 2.51307 7.94346 3.01285 7.03392C3.51261 6.12432 3.98144 5.75637 4.2221 5.61622C4.32907 5.55394 4.4524 5.54449 4.5736 5.56162C4.9921 5.62086 6.05064 5.78476 6.93517 6.03912C7.54518 5.52308 8.2317 5.10288 8.9741 4.80029C9.20674 3.86875 9.60047 2.82489 9.76077 2.41476Z" fill="currentColor" />
           <path d="M15.6727 12.3372C15.6727 14.5688 13.9184 16.3779 11.7545 16.3779C9.59052 16.3779 7.8363 14.5688 7.8363 12.3372C7.8363 10.1057 9.59052 8.29662 11.7545 8.29662C13.9184 8.29662 15.6727 10.1057 15.6727 12.3372Z" fill="currentColor" />
@@ -38,11 +33,11 @@
           </select>
         </div>
 
-        <div class="form__pomodoro-counter pomodoro-counter">
-          <button class="pomodoro-counter__button button button--accent" type="button" aria-label="Decrease by 1">
+        <div class="form__counter counter">
+          <button class="counter__button button button--accent" type="button" aria-label="Decrease by 1">
             -
           </button>
-          <div class="pomodoro-counter__value">
+          <div class="counter__value">
             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M12.8433 23.2963C18.0071 23.2963 22.1933 19.1102 22.1933 13.9463C22.1933 8.78245 18.0071 4.59631 12.8433 4.59631C7.6794 4.59631 3.49327 8.78245 3.49327 13.9463C3.49327 19.1102 7.6794 23.2963 12.8433 23.2963Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
               <path d="M10.2933 1.19632H15.3933" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -51,9 +46,9 @@
               <path d="M21.3433 3.74632L23.0433 5.44632" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M4.34327 3.74632L2.64327 5.44632" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span class="pomodoro-counter__count">0</span>
+            <span class="counter__count">0</span>
           </div>
-          <button class="pomodoro-counter__button button button--accent" type="button" aria-label="Increase by 1">
+          <button class="counter__button button button--accent" type="button" aria-label="Increase by 1">
             +
           </button>
         </div>
@@ -72,7 +67,7 @@
               </label>
             </td>
             <td class="task__date task__start">
-              <button class="task__button button" type="button" onclick="timerOverlay.showModal()" aria-label="Start focus">
+              <button class="task__button button" type="button" aria-label="Start focus">
                 <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 8a6.5 6.5 0 1 1 13 0 6.5 6.5 0 0 1-13 0ZM8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM6.379 5.227A.25.25 0 0 0 6 5.442v5.117a.25.25 0 0 0 .379.214l4.264-2.559a.25.25 0 0 0 0-.428L6.379 5.227Z" fill="currentColor"/>
                 </svg>
@@ -128,7 +123,7 @@
               </label>
             </td>
             <td class="task__date task__start">
-              <button class="task__button button" type="button" onclick="timerOverlay.showModal()" aria-label="Start focus">
+              <button class="task__button button" type="button" aria-label="Start focus">
                 <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 8C1.5 4.41015 4.41015 1.5 8 1.5C11.5899 1.5 14.5 4.41015 14.5 8C14.5 11.5899 11.5899 14.5 8 14.5C4.41015 14.5 1.5 11.5899 1.5 8ZM8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM6.37862 5.22717C6.21199 5.1272 6 5.24722 6 5.44155V10.5585C6 10.7528 6.21199 10.8728 6.37862 10.7728L10.6427 8.21437C10.8045 8.11727 10.8045 7.88273 10.6427 7.78563L6.37862 5.22717Z" fill="currentColor"/>
                 </svg>
@@ -184,7 +179,7 @@
               </label>
             </td>
             <td class="task__date task__start">
-              <button class="task__button button" type="button" onclick="timerOverlay.showModal()" aria-label="Start focus">
+              <button class="task__button button" type="button" aria-label="Start focus">
                 <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 8C1.5 4.41015 4.41015 1.5 8 1.5C11.5899 1.5 14.5 4.41015 14.5 8C14.5 11.5899 11.5899 14.5 8 14.5C4.41015 14.5 1.5 11.5899 1.5 8ZM8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM6.37862 5.22717C6.21199 5.1272 6 5.24722 6 5.44155V10.5585C6 10.7528 6.21199 10.8728 6.37862 10.7728L10.6427 8.21437C10.8045 8.11727 10.8045 7.88273 10.6427 7.78563L6.37862 5.22717Z" fill="currentColor"/>
                 </svg>
@@ -240,7 +235,7 @@
               </label>
             </td>
             <td class="task__date task__start">
-              <button class="task__button button" type="button" onclick="timerOverlay.showModal()" aria-label="Start focus">
+              <button class="task__button button" type="button" aria-label="Start focus">
                 <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 8C1.5 4.41015 4.41015 1.5 8 1.5C11.5899 1.5 14.5 4.41015 14.5 8C14.5 11.5899 11.5899 14.5 8 14.5C4.41015 14.5 1.5 11.5899 1.5 8ZM8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM6.37862 5.22717C6.21199 5.1272 6 5.24722 6 5.44155V10.5585C6 10.7528 6.21199 10.8728 6.37862 10.7728L10.6427 8.21437C10.8045 8.11727 10.8045 7.88273 10.6427 7.78563L6.37862 5.22717Z" fill="currentColor"/>
                 </svg>
@@ -293,51 +288,51 @@
     </div>
   </div>
 
-  <dialog class="settings-overlay" id="settingsOverlay">
-    <form class="settings-overlay__close-button-wrapper" method="dialog">
-      <button class="settings-overlay__close-button button button--cross" type="submit">
-        <span class="visually-hidden">Close settings menu</span>
-      </button>
-    </form>
+  <div class="overlay">
+    <div class="container">
+      <form class="settings">
+        <button class="settings__close-button button button--cross" type="button">
+          <span class="visually-hidden">Close settings menu</span>
+        </button>
 
-    <form class="pomodoro-settings">
-      <h2 class="pomodoro-settings__title">Settings</h2>
+        <fieldset class="settings__content">
+          <h2 class="settings__title">Settings</h2>
 
-      <div class="pomodoro-settings__body">
-        <label class="pomodoro-settings__label">Pomodoro Length
-          <input class="pomodoro-settings__input" type="number" placeholder="Number of minutes">
-        </label>
+          <div class="settings__body">
+            <label class="settings__label">Pomodoro Length
+              <input class="settings__input" type="number" min="1" step="1" placeholder="Number of minutes">
+            </label>
 
-        <label class="pomodoro-settings__label">Short Break Length
-          <input class="pomodoro-settings__input" type="number" placeholder="Number of minutes">
-        </label>
+            <label class="settings__label">Short Break Length
+              <input class="settings__input" type="number" min="1" step="1" placeholder="Number of minutes">
+            </label>
 
-        <label class="pomodoro-settings__label">Long Break Length
-          <input class="pomodoro-settings__input" type="number" placeholder="Number of minutes">
-        </label>
+            <label class="settings__label">Long Break Length
+              <input class="settings__input" type="number" min="1" step="1" placeholder="Number of minutes">
+            </label>
 
-        <label class="pomodoro-settings__label">Long Break After
-          <input class="pomodoro-settings__input" type="number" placeholder="Number of pomodoros">
-        </label>
-      </div>
-    </form>
-  </dialog>
+            <label class="settings__label">Long Break After
+              <input class="settings__input" type="number" min="1" step="1" placeholder="Number of pomodoros">
+            </label>
+          </div>
 
-  <dialog class="timer-overlay" id="timerOverlay">
-    <form class="timer-overlay__close-button-wrapper" method="dialog">
-      <button class="timer-overlay__close-button button button--cross" type="submit">
-        <span class="visually-hidden">Close timer window</span>
-      </button>
-    </form>
-
-    <div class="timer" data-timer-deadline="1">
-      <h2 class="timer__title">Course. Focus To Do: design.</h2>
-      <div class="timer__container">
-        <div class="timer__progress"></div>
-        <span class="timer__time">25:00</span>
-      </div>
-      <button class="timer__button button button--accent" type="button">Start</button>
+          <button class="settings__save-button button button--accent" type="submit">Save</button>
+        </fieldset>
+      </form>
     </div>
-  </dialog>
+  </div>
+
+  <div class="overlay">
+    <div class="container">
+      <div class="timer" data-timer-deadline="1">
+        <h2 class="timer__title">Course. Focus To Do: design.</h2>
+        <div class="timer__content">
+          <div class="timer__progress"></div>
+          <span class="timer__time">25:00</span>
+        </div>
+        <button class="timer__button button button--accent" type="button">Start</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
