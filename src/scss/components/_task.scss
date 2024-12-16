@@ -53,6 +53,7 @@
 
   &__pomodoro {
     --width: 1.25rem;
+    --height: 1.25rem;
     --column-gap: 0.5rem;
 
     display: inline-flex;
@@ -62,11 +63,13 @@
 
     @include media.mobile {
       --width: 1rem;
+      --height: 1rem;
       --column-gap: 0.375rem;
     }
 
-    &-priority {
-      width: var(--width) !important;
+    & &-priority {
+      width: var(--width);
+      height: var(--height);
     }
 
     &-total {
@@ -76,6 +79,7 @@
 
       & svg {
         width: var(--width);
+        height: var(--height);
         color: var(--text-accent);
       }
     }
