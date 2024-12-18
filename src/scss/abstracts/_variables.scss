@@ -1,0 +1,71 @@
+:root {
+  /* Container */
+  --container-width: 64rem;
+  --container-padding-x: 1.25rem;
+
+  /* Fonts */
+  --font-family: 'Kanit', sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  --font-size-base: 1rem;
+  --font-size-md: 1.25rem;
+  --fonts-size-lg: 2.5rem;
+
+  /* Colors */
+  --gray-lighten: #f7f7f7;
+  --gray-light: #a9a9a9;
+  --gray: #656565;
+  --gray-dark: #80808080;
+  --gray-darken: #252525;
+
+  --accent: #6c63ff;
+  --high: #ff4e4e;
+  --medium: #ffff3b;
+  --low: #76ff76;
+  --no-priority: #bbbbbb;
+
+  --text-primary: var(--gray-lighten);
+  --text-muted: var(--gray-light);
+  --text-placeholder: var(--gray);
+  --text-accent: var(--accent);
+
+  --background-primary: var(--gray-darken);
+  --background-secondary: var(--gray-dark);
+  --background-accent: var(--accent);
+  --background-overlay: rgb(50 50 50 / 0.7);
+
+  --border-color: var(--gray-light);
+
+  --checkbox-border-color: var(--accent);
+  --checkbox-checked-color: var(--gray-lighten);
+
+  --box-shadow: 0 0 10px var(--accent);
+  --drop-shadow: drop-shadow(1px 1px 10px var(--accent));
+
+  /* Border-radius */
+  --border-radius-lg: 1rem;
+  --border-radius-md: 0.75rem;
+  --border-radius-sm: 0.5rem;
+  --border-radius-xsm: 0.375rem;
+
+  /* Outline */
+  --outline: 2px solid var(--gray-lighten);
+  --outline-offset: 2px;
+}
+
+@media (max-width: 576px) {
+  :root {
+    /* Fonts */
+    --font-size-base: 0.875rem;
+    --font-size-md: 1rem;
+    --fonts-size-lg: 2rem;
+
+    /* Border-radius */
+    --border-radius-lg: 0.875rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-sm: 0.375rem;
+    --border-radius-xsm: 0.25rem;
+  }
+}
