@@ -17,17 +17,17 @@ export default {
     app: './src/js/app.js',
   },
   output: {
-    filename: 'js/[name][contenthash].js',
+    filename: 'js/[name].js',
     path: path.resolve(process.cwd(), 'dist'),
     clean: true,
-    assetModuleFilename: 'assets/[hash][ext][query]',
+    assetModuleFilename: 'assets/[name][ext][query]',
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name][contenthash].css',
+      filename: 'css/[name].css',
     }),
   ],
   module: {
@@ -47,16 +47,17 @@ export default {
       },
       {
         test: /\.(jpg|jpeg|png|svg|gif)$/i,
+        exclude: path.resolve(process.cwd(), './src/svg'),
         type: 'asset/resource',
         generator: {
-          filename: 'img/[hash][ext][query]',
+          filename: 'img/[name][ext][query]',
         },
       },
       {
         test: /\.(woff2|woff|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'fonts/[hash][ext][query]',
+          filename: 'fonts/[name][ext][query]',
         },
       },
       {
