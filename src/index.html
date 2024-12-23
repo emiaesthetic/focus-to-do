@@ -24,7 +24,7 @@
 
         <div class="form__select-wrapper select-wrapper">
           <label class="visually-hidden" for="task-priority">Приоритет задачи</label>
-          <select class="select" id="task-priority" name="priority">
+          <select class="form__select select" id="task-priority" name="priority">
             <option class="select__option" value="no-priority" selected>no priority</option>
             <option class="select__option" value="high">high</option>
             <option class="select__option" value="medium">medium</option>
@@ -33,16 +33,27 @@
         </div>
 
         <div class="form__counter counter">
-          <button class="counter__button button button--accent" type="button" aria-label="Decrease by 1">
+          <button
+            class="counter__button counter__decrease button button--accent"
+            type="button"
+            aria-label="Decrease by 1"
+            aria-controls="counter-value"
+          >
             -
           </button>
           <div class="counter__value">
             <svg aria-hidden="true">
               <use href="img/sprite.svg#alarm"></use>
             </svg>
-            <span class="counter__count">0</span>
+            <span class="counter__display" aria-live="polite">0</span>
+            <input class="counter__input" type="hidden" name="counter" value="0">
           </div>
-          <button class="counter__button button button--accent" type="button" aria-label="Increase by 1">
+          <button
+            class="counter__button counter__increase button button--accent"
+            type="button"
+            aria-label="Increase by 1"
+            aria-controls="counter-value"
+          >
             +
           </button>
         </div>

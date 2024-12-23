@@ -39,4 +39,9 @@
       color: var(--text-accent);
     }
   }
+
+  &__display {
+    width: 1.25rem;
+    text-align: center;
+  }
 }
