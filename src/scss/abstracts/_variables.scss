@@ -35,14 +35,14 @@
   --background-secondary: var(--gray-dark);
   --background-accent: var(--accent);
   --background-overlay: rgb(50 50 50 / 0.7);
-
-  --border-color: var(--gray-light);
+  
+  --border-color: var(--gray);
 
   --checkbox-border-color: var(--accent);
   --checkbox-checked-color: var(--gray-lighten);
 
   --box-shadow: 0 0 10px var(--accent);
-  --drop-shadow: drop-shadow(1px 1px 10px var(--accent));
+  --drop-shadow: drop-shadow(0 0 6px var(--accent));
 
   /* Border-radius */
   --border-radius-lg: 1rem;

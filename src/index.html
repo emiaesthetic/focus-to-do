@@ -20,42 +20,82 @@
       <h1 class="app__title">Focus To Do</h1>
 
       <form class="form">
-        <input class="form__input" type="text" name="description" placeholder="Add a task, press Enter to save...">
+        <div class="form__input-wrapper">
+          <input class="form__input" type="text" name="description" placeholder="Add a task, press Enter to save...">
 
-        <div class="form__select-wrapper select-wrapper">
-          <label class="visually-hidden" for="task-priority">Приоритет задачи</label>
-          <select class="form__select select" id="task-priority" name="priority">
-            <option class="select__option" value="no-priority" selected>no priority</option>
-            <option class="select__option" value="high">high</option>
-            <option class="select__option" value="medium">medium</option>
-            <option class="select__option" value="low">low</option>
-          </select>
-        </div>
+          <div class="form__addon">
+            <div class="form__counter counter">
+              <input class="counter__radio" type="radio" name="counter" id="counter-1" value="1">
+              <label class="counter__label" for="counter-1">
+                <svg aria-hidden="true">
+                  <use href="img/sprite.svg#alarm"></use>
+                </svg>
+              </label>
 
-        <div class="form__counter counter">
-          <button
-            class="counter__button counter__decrease button button--accent"
-            type="button"
-            aria-label="Decrease by 1"
-            aria-controls="counter-value"
-          >
-            -
-          </button>
-          <div class="counter__value">
-            <svg aria-hidden="true">
-              <use href="img/sprite.svg#alarm"></use>
-            </svg>
-            <span class="counter__display" aria-live="polite">0</span>
-            <input class="counter__input" type="hidden" name="counter" value="0">
+              <input class="counter__radio" type="radio" name="counter" id="counter-2" value="2">
+              <label class="counter__label" for="counter-2">
+                <svg aria-hidden="true">
+                  <use href="img/sprite.svg#alarm"></use>
+                </svg>
+              </label>
+
+              <input class="counter__radio" type="radio" name="counter" id="counter-3" value="3">
+              <label class="counter__label" for="counter-3">
+                <svg aria-hidden="true">
+                  <use href="img/sprite.svg#alarm"></use>
+                </svg>
+              </label>
+
+              <input class="counter__radio" type="radio" name="counter" id="counter-4" value="4">
+              <label class="counter__label" for="counter-4">
+                <svg aria-hidden="true">
+                  <use href="img/sprite.svg#alarm"></use>
+                </svg>
+              </label>
+
+              <button class="counter__open-popup" type="button" aria-label="Open counter popup">
+                <svg aria-hidden="true">
+                  <use href="img/sprite.svg#more-counter"></use>
+                </svg>
+              </button>
+
+              <div class="counter__popup">
+                <button
+                  class="counter__button counter__decrease button button--accent"
+                  type="button"
+                  aria-label="Decrease by 1"
+                  aria-controls="counter-value"
+                >
+                  -
+                </button>
+                <div class="counter__value" id="counter-value">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#alarm"></use>
+                  </svg>
+                  <span class="counter__display" aria-live="polite">0</span>
+                  <input class="counter__input" type="hidden" name="counter" value="0">
+                </div>
+                <button
+                  class="counter__button counter__increase button button--accent"
+                  type="button"
+                  aria-label="Increase by 1"
+                  aria-controls="counter-value"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            <div class="form__select-wrapper select-wrapper">
+              <label class="visually-hidden" for="task-priority">Приоритет задачи</label>
+              <select class="form__select select" id="task-priority" name="priority">
+                <option class="select__option" value="no-priority" selected>no-priority</option>
+                <option class="select__option" value="high">high</option>
+                <option class="select__option" value="medium">medium</option>
+                <option class="select__option" value="low">low</option>
+              </select>
+            </div>
           </div>
-          <button
-            class="counter__button counter__increase button button--accent"
-            type="button"
-            aria-label="Increase by 1"
-            aria-controls="counter-value"
-          >
-            +
-          </button>
         </div>
       </form>
 
