@@ -86,15 +86,33 @@
               </div>
             </div>
 
-            <div class="form__select-wrapper select-wrapper">
-              <label class="visually-hidden" for="task-priority">Приоритет задачи</label>
-              <select class="form__select select" id="task-priority" name="priority">
-                <option class="select__option" value="no-priority" selected>no-priority</option>
-                <option class="select__option" value="high">high</option>
-                <option class="select__option" value="medium">medium</option>
-                <option class="select__option" value="low">low</option>
-              </select>
-            </div>
+            <select class="form__choices choices" id="priority" name="priority">
+              <option
+                value="no-priority"
+                data-custom-properties='{"url": "img/sprite.svg#priority", "class": "choices__icon no-priority", "label": "no priority"}'
+                selected
+              >
+                no priority
+              </option>
+              <option
+                value="high"
+                data-custom-properties='{"url": "img/sprite.svg#priority", "class": "choices__icon high", "label": "high priority"}'
+              >
+                high priority
+              </option>
+              <option
+                value="medium"
+                data-custom-properties='{"url": "img/sprite.svg#priority", "class": "choices__icon medium", "label": "medium priority"}'
+              >
+                medium priority
+              </option>
+              <option
+                value="low"
+                data-custom-properties='{"url": "img/sprite.svg#priority", "class": "choices__icon low", "label": "low priority"}'
+              >
+                low priority
+              </option>
+            </select>
           </div>
         </div>
       </form>
