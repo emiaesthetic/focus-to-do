@@ -1,7 +1,6 @@
 @use '../abstracts/mixins' as mixins;
 
 .overlay {
-  @include mixins.flex-center();
   position: fixed;
   inset: 0;
   z-index: 100;
@@ -10,11 +9,17 @@
   opacity: 0;
   scale: 0.5;
   color: var(--text-primary);
-  background-color: var(--background-overlay);
+  background-color: var(--background-primary);
+  backdrop-filter: var(--blur);
 
-  &--open {
+  &--is-open {
     visibility: visible;
     opacity: 1;
     scale: 1;
+  }
+
+  &__container {
+    @include mixins.flex-center();
+    height: 100%;
   }
 }
