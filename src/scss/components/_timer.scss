@@ -10,7 +10,7 @@
   padding: 3.75rem 2.25rem;
   font-weight: var(--font-weight-medium);
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-lg);
+  border-radius: var(--border-radius-xlg);
   background-color: var(--background-primary);
 
   @include media.tablet {
@@ -34,52 +34,37 @@
   }
 
   &__progress {
-    --border-width: 16px;
-    --angle: 0deg;
+    --progress-width: 16rem;
+    --progress-height: 16rem;
+    --cx: 120;
+    --cy: 120;
+    --r: 112;
+    --stroke-width: 16;
+    --stroke-dasharray: 710;
+    --stroke-dashoffset: 710;
 
-    position: relative;
-    width: 18rem;
-    height: 18rem;
+    width: var(--progress-width);
+    height: var(--progress-height);
+    rotate: -90deg;
+    filter: var(--drop-shadow);
 
     @include media.tablet {
-      --border-width: 14px;
-
-      width: 16rem;
-      height: 16rem;
+      scale: 0.8;
     }
 
     @include media.mobile {
-      --border-width: 12px;
-
-      width: 14rem;
-      height: 14rem;
+      scale: 0.7;
     }
+  }
 
-    &:before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 110;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background-image: conic-gradient(
-        var(--accent) var(--angle),
-        var(--background-primary) var(--angle)
-      );
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: var(--border-width);
-      left: var(--border-width);
-      z-index: 111;
-      width: calc(100% - var(--border-width) * 2);
-      height: calc(100% - var(--border-width) * 2);
-      border-radius: 50%;
-      background-color: var(--background-primary);
-    }
+  &__circle {
+    cx: var(--cx);
+    cy: var(--cy);
+    r: var(--r);
+    stroke-width: var(--stroke-width);
+    stroke-dasharray: var(--stroke-dasharray);
+    stroke-dashoffset: var(--stroke-dashoffset);
+    fill: none;
   }
 
   &__time {
