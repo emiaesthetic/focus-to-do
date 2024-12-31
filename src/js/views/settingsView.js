@@ -2,12 +2,18 @@ export class SettingsView {
   constructor() {
     this.form = document.querySelector('.settings');
     this.overlay = this.form.closest('.overlay');
+    this.container = this.form.closest('.overlay__container');
     this.openBtn = document.querySelector('.app__settings-button');
     this.closeBtn = this.form.querySelector('.settings__close-button');
 
     this.openBtn.addEventListener('click', this.open.bind(this));
     this.closeBtn.addEventListener('click', this.close.bind(this));
     this.form.addEventListener('submit', this.submit.bind(this));
+    this.overlay.addEventListener('click', ({ target }) => {
+      if (target === this.overlay || target === this.container) {
+        this.close();
+      }
+    });
   }
 
   bindUpdate(handler) {
@@ -15,11 +21,11 @@ export class SettingsView {
   }
 
   open() {
-    this.overlay.classList.add('overlay--open');
+    this.overlay.classList.add('overlay--is-open');
   }
 
   close() {
-    this.overlay.classList.remove('overlay--open');
+    this.overlay.classList.remove('overlay--is-open');
   }
 
   submit(event) {
