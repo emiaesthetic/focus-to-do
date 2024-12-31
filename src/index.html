@@ -10,247 +10,330 @@
 
 <body>
   <div class="app">
-    <div class="app__container container">
-      <button class="app__settings-button button button--settings" type="button" aria-label="Open settings menu">
-        <svg aria-label="Open setting menu">
-          <use href="img/sprite.svg#settings"></use>
-        </svg>
-      </button>
+    <div class="container">
+      <div class="app__content">
+        <button class="app__settings-button button button--settings" type="button" aria-label="Open settings menu">
+          <svg aria-label="Open setting menu">
+            <use href="img/sprite.svg#settings"></use>
+          </svg>
+        </button>
 
-      <h1 class="app__title">Focus To Do</h1>
+        <h1 class="app__title">Focus To Do</h1>
 
-      <form class="form">
-        <input class="form__input" type="text" name="description" placeholder="Add a task, press Enter to save...">
+        <form class="form">
+          <div class="form__input-wrapper">
+            <input
+              class="form__input"
+              type="text"
+              name="description"
+              placeholder="Add a task, press Enter to save..."
+              autocomplete="off"
+            >
 
-        <div class="form__select-wrapper select-wrapper">
-          <label class="visually-hidden" for="task-priority">Приоритет задачи</label>
-          <select class="form__select select" id="task-priority" name="priority">
-            <option class="select__option" value="no-priority" selected>no priority</option>
-            <option class="select__option" value="high">high</option>
-            <option class="select__option" value="medium">medium</option>
-            <option class="select__option" value="low">low</option>
-          </select>
-        </div>
+            <div class="form__addon">
+              <div class="form__counter counter">
+                <input class="counter__radio" type="radio" name="counter" id="counter-4" value="4">
+                <label class="counter__label" for="counter-4">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#alarm"></use>
+                  </svg>
+                </label>
 
-        <div class="form__counter counter">
-          <button
-            class="counter__button counter__decrease button button--accent"
-            type="button"
-            aria-label="Decrease by 1"
-            aria-controls="counter-value"
-          >
-            -
-          </button>
-          <div class="counter__value">
-            <svg aria-hidden="true">
-              <use href="img/sprite.svg#alarm"></use>
-            </svg>
-            <span class="counter__display" aria-live="polite">0</span>
-            <input class="counter__input" type="hidden" name="counter" value="0">
+                <input class="counter__radio" type="radio" name="counter" id="counter-3" value="3">
+                <label class="counter__label" for="counter-3">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#alarm"></use>
+                  </svg>
+                </label>
+
+                <input class="counter__radio" type="radio" name="counter" id="counter-2" value="2">
+                <label class="counter__label" for="counter-2">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#alarm"></use>
+                  </svg>
+                </label>
+
+                <input class="counter__radio" type="radio" name="counter" id="counter-1" value="1">
+                <label class="counter__label" for="counter-1">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#alarm"></use>
+                  </svg>
+                </label>
+
+                <button class="counter__open-popup" type="button" aria-label="Open counter popup">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#more-counter"></use>
+                  </svg>
+                </button>
+
+                <div class="counter__popup counter__popup--is-open">
+                  <button
+                    class="counter__button counter__decrease button button--accent"
+                    type="button"
+                    aria-label="Decrease by 1"
+                    aria-controls="counter-value"
+                  >
+                    -
+                  </button>
+                  <div class="counter__value" id="counter-value">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                    <span class="counter__display" aria-live="polite">0</span>
+                    <input class="counter__input" type="hidden" name="counter" value="0">
+                  </div>
+                  <button
+                    class="counter__button counter__increase button button--accent"
+                    type="button"
+                    aria-label="Increase by 1"
+                    aria-controls="counter-value"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <label class="visually-hidden" for="priority">Task priority</label>
+              <select class="form__choices choices" name="priority" id="priority">
+                <option
+                  value="no-priority"
+                  data-custom-properties="{
+                    &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
+                    &quot;class&quot;: &quot;choices__icon no-priority&quot;,
+                    &quot;label&quot;: &quot;no priority&quot;
+                  }"
+                  selected
+                >
+                  no priority
+                </option>
+                <option
+                  value="high"
+                  data-custom-properties="{
+                    &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
+                    &quot;class&quot;: &quot;choices__icon high&quot;,
+                    &quot;label&quot;: &quot;high priority&quot;
+                  }"
+                >
+                  high priority
+                </option>
+                <option
+                  value="medium"
+                  data-custom-properties="{
+                    &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
+                    &quot;class&quot;: &quot;choices__icon medium&quot;,
+                    &quot;label&quot;: &quot;medium priority&quot;
+                  }"
+                >
+                  medium priority
+                </option>
+                <option
+                  value="low"
+                  data-custom-properties="{
+                    &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
+                    &quot;class&quot;: &quot;choices__icon low&quot;,
+                    &quot;label&quot;: &quot;low priority&quot;
+                  }"
+                >
+                  low priority
+                </option>
+              </select>
+            </div>
           </div>
-          <button
-            class="counter__button counter__increase button button--accent"
-            type="button"
-            aria-label="Increase by 1"
-            aria-controls="counter-value"
-          >
-            +
-          </button>
+        </form>
+
+        <div class="no-tasks">
+          <img class="no-tasks__image" src="img/no-tasks.svg" alt="Task list is empty">
         </div>
-      </form>
 
-      <div class="no-tasks">
-        <img class="no-tasks__image" src="img/no-tasks.svg" alt="Task list is empty">
+        <table class="tasks" aria-label="Tasks">
+          <tbody class="tasks__rows">
+            <tr class="task">
+              <td class="task__data task__complete">
+                <label class="task__checkbox checkbox">
+                  <input class="checkbox__input" type="checkbox" name="checkbox">
+                </label>
+              </td>
+              <td class="task__data task__start">
+                <button class="task__button button" type="button" aria-label="Start focus">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#start"></use>
+                  </svg>
+                </button>
+              </td>
+              <td class="task__data task__description">
+                <p class="task__name">Course. Focus To Do: design.</p>
+                <div class="task__pomodoro">
+                  <svg class="task__pomodoro-priority high" aria-hidden="true">
+                    <use href="img/sprite.svg#priority"></use>
+                  </svg>
+                  <span class="task__pomodoro-done">0</span>
+                  <span class="task__pomodoro-divide">/</span>
+                  <div class="task__pomodoro-total">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                    <span class="task__pomodoro-number">4</span>
+                  </div>
+                </div>
+              </td>
+              <td class="task__data task__edit">
+                <button class="task__button button button--transparent" type="button" aria-label="Edit task">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#edit"></use>
+                  </svg>
+                </button>
+              </td>
+              <td class="task__data task__delete">
+                <button class="task__button button button--transparent" type="button" aria-label="Delete task">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#trash"></use>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+
+            <tr class="task">
+              <td class="task__data task__complete">
+                <label class="task__checkbox checkbox">
+                  <input class="checkbox__input" type="checkbox" name="checkbox">
+                </label>
+              </td>
+              <td class="task__data task__start">
+                <button class="task__button button" type="button" aria-label="Start focus">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#start"></use>
+                  </svg>
+                </button>
+              </td>
+              <td class="task__data task__description">
+                <p class="task__name">English. Lessons and "Friends".</p>
+                <div class="task__pomodoro">
+                  <svg class="task__pomodoro-priority medium" aria-hidden="true">
+                    <use href="img/sprite.svg#priority"></use>
+                  </svg>
+                  <span class="task__pomodoro-done">0</span>
+                  <span class="task__pomodoro-divide">/</span>
+                  <div class="task__pomodoro-total">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                    <span class="task__pomodoro-number">4</span>
+                  </div>
+                </div>
+              </td>
+              <td class="task__data task__edit">
+                <button class="task__button button button--transparent" type="button" aria-label="Edit task">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#edit"></use>
+                  </svg>
+                </button>
+              </td>
+              <td class="task__data task__delete">
+                <button class="task__button button button--transparent" type="button" aria-label="Delete task">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#trash"></use>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+
+            <tr class="task">
+              <td class="task__data task__complete">
+                <label class="task__checkbox checkbox">
+                  <input class="checkbox__input" type="checkbox" name="checkbox">
+                </label>
+              </td>
+              <td class="task__data task__start">
+                <button class="task__button button" type="button" aria-label="Start focus">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#start"></use>
+                  </svg>
+                </button>
+              </td>
+              <td class="task__data task__description">
+                <p class="task__name">Reading.</p>
+                <div class="task__pomodoro">
+                  <svg class="task__pomodoro-priority low" aria-hidden="true">
+                    <use href="img/sprite.svg#priority"></use>
+                  </svg>
+                  <span class="task__pomodoro-done">0</span>
+                  <span class="task__pomodoro-divide">/</span>
+                  <div class="task__pomodoro-total">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                    <span class="task__pomodoro-number">4</span>
+                  </div>
+                </div>
+              </td>
+              <td class="task__data task__edit">
+                <button class="task__button button button--transparent" type="button" aria-label="Edit task">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#edit"></use>
+                  </svg>
+                </button>
+              </td>
+              <td class="task__data task__delete">
+                <button class="task__button button button--transparent" type="button" aria-label="Delete task">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#trash"></use>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+
+            <tr class="task">
+              <td class="task__data task__complete">
+                <label class="task__checkbox checkbox">
+                  <input class="checkbox__input" type="checkbox" name="checkbox">
+                </label>
+              </td>
+              <td class="task__data task__start">
+                <button class="task__button button" type="button" aria-label="Start focus">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#start"></use>
+                  </svg>
+                </button>
+              </td>
+              <td class="task__data task__description">
+                <p class="task__name">Go to the gym.</p>
+                <div class="task__pomodoro">
+                  <svg class="task__pomodoro-priority no-priority" aria-hidden="true">
+                    <use href="img/sprite.svg#priority"></use>
+                  </svg>
+                  <span class="task__pomodoro-done">0</span>
+                  <span class="task__pomodoro-divide">/</span>
+                  <div class="task__pomodoro-total">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                    <span class="task__pomodoro-number">4</span>
+                  </div>
+                </div>
+              </td>
+              <td class="task__data task__edit">
+                <button class="task__button button button--transparent" type="button" aria-label="Edit task">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#edit"></use>
+                  </svg>
+                </button>
+              </td>
+              <td class="task__data task__delete">
+                <button class="task__button button button--transparent" type="button" aria-label="Delete task">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#trash"></use>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-      <table class="tasks" aria-label="Tasks">
-        <tbody class="tasks__rows">
-          <tr class="task">
-            <td class="task__date task__complete">
-              <label class="task__checkbox checkbox">
-                <input class="checkbox__input" type="checkbox" name="checkbox">
-              </label>
-            </td>
-            <td class="task__date task__start">
-              <button class="task__button button" type="button" aria-label="Start focus">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#start"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__description">
-              <p class="task__name">Course. Focus To Do: design.</p>
-              <div class="task__pomodoro">
-                <svg class="task__pomodoro-priority high" aria-hidden="true">
-                  <use href="img/sprite.svg#priority"></use>
-                </svg>
-                <span class="task__pomodoro-done">0</span>
-                <span class="task__pomodoro-divide">/</span>
-                <div class="task__pomodoro-total">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                  <span class="task__pomodoro-number">4</span>
-                </div>
-              </div>
-            </td>
-            <td class="task__date task__edit">
-              <button class="task__button button button--transparent" type="button" aria-label="Edit task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#edit"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__delete">
-              <button class="task__button button button--transparent" type="button" aria-label="Delete task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#trash"></use>
-                </svg>
-              </button>
-            </td>
-          </tr>
-
-          <tr class="task">
-            <td class="task__date task__complete">
-              <label class="task__checkbox checkbox">
-                <input class="checkbox__input" type="checkbox" name="checkbox">
-              </label>
-            </td>
-            <td class="task__date task__start">
-              <button class="task__button button" type="button" aria-label="Start focus">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#start"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__description">
-              <p class="task__name">English. Lessons and "Friends".</p>
-              <div class="task__pomodoro">
-                <svg class="task__pomodoro-priority medium" aria-hidden="true">
-                  <use href="img/sprite.svg#priority"></use>
-                </svg>
-                <span class="task__pomodoro-done">0</span>
-                <span class="task__pomodoro-divide">/</span>
-                <div class="task__pomodoro-total">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                  <span class="task__pomodoro-number">4</span>
-                </div>
-              </div>
-            </td>
-            <td class="task__date task__edit">
-              <button class="task__button button button--transparent" type="button" aria-label="Edit task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#edit"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__delete">
-              <button class="task__button button button--transparent" type="button" aria-label="Delete task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#trash"></use>
-                </svg>
-              </button>
-            </td>
-          </tr>
-
-          <tr class="task">
-            <td class="task__date task__complete">
-              <label class="task__checkbox checkbox">
-                <input class="checkbox__input" type="checkbox" name="checkbox">
-              </label>
-            </td>
-            <td class="task__date task__start">
-              <button class="task__button button" type="button" aria-label="Start focus">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#start"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__description">
-              <p class="task__name">Reading.</p>
-              <div class="task__pomodoro">
-                <svg class="task__pomodoro-priority low" aria-hidden="true">
-                  <use href="img/sprite.svg#priority"></use>
-                </svg>
-                <span class="task__pomodoro-done">0</span>
-                <span class="task__pomodoro-divide">/</span>
-                <div class="task__pomodoro-total">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                  <span class="task__pomodoro-number">4</span>
-                </div>
-              </div>
-            </td>
-            <td class="task__date task__edit">
-              <button class="task__button button button--transparent" type="button" aria-label="Edit task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#edit"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__delete">
-              <button class="task__button button button--transparent" type="button" aria-label="Delete task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#trash"></use>
-                </svg>
-              </button>
-            </td>
-          </tr>
-
-          <tr class="task">
-            <td class="task__date task__complete">
-              <label class="task__checkbox checkbox">
-                <input class="checkbox__input" type="checkbox" name="checkbox">
-              </label>
-            </td>
-            <td class="task__date task__start">
-              <button class="task__button button" type="button" aria-label="Start focus">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#start"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__description">
-              <p class="task__name">Go to the gym.</p>
-              <div class="task__pomodoro">
-                <svg class="task__pomodoro-priority no-priority" aria-hidden="true">
-                  <use href="img/sprite.svg#priority"></use>
-                </svg>
-                <span class="task__pomodoro-done">0</span>
-                <span class="task__pomodoro-divide">/</span>
-                <div class="task__pomodoro-total">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                  <span class="task__pomodoro-number">4</span>
-                </div>
-              </div>
-            </td>
-            <td class="task__date task__edit">
-              <button class="task__button button button--transparent" type="button" aria-label="Edit task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#edit"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__delete">
-              <button class="task__button button button--transparent" type="button" aria-label="Delete task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#trash"></use>
-                </svg>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 
   <div class="overlay">
-    <div class="container">
+    <div class="overlay__container container">
       <form class="settings">
         <button class="settings__close-button button button--cross" type="button">
           <span class="visually-hidden">Close settings menu</span>
@@ -284,11 +367,22 @@
   </div>
 
   <div class="overlay">
-    <div class="container">
+    <div class="overlay__container container">
       <div class="timer" data-timer-deadline="1">
         <h2 class="timer__title">Course. Focus To Do: design.</h2>
         <div class="timer__content">
-          <div class="timer__progress"></div>
+          <svg class="timer__progress" viewBox="0 0 240 240">
+            <defs>
+              <linearGradient id="gradient">
+                <stop offset="0%" stop-color="rgb(255 175 175 / 0.9)" />
+                <stop offset="100%" stop-color="rgb(255 175 175 / 0.9)" />
+              </linearGradient>
+            </defs>
+            <g id="ticks">
+              <line x1="120" y1="6" x2="120" y2="18" stroke="rgb(255 255 255 / 0.2)" stroke-width="4.5" stroke-linecap="round" />
+            </g>
+            <circle class="timer__circle" stroke="url(#gradient)"/>
+          </svg>
           <span class="timer__time">25:00</span>
         </div>
         <button class="timer__button button button--accent" type="button">Start</button>

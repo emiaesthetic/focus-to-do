@@ -17,6 +17,11 @@
   background-color: transparent;
   @include mixins.transition(filter);
 
+  @include media.tablet {
+    --button-width: 2.75rem;
+    --button-height: 2.75rem;
+  }
+
   @include media.mobile {
     --button-width: 2.5rem;
     --button-height: 2.5rem;
@@ -38,7 +43,6 @@
   &--accent {
     color: var(--text-primary);
     background-color: var(--background-accent);
-
     @include mixins.transition(--box-shadow);
 
     @include mixins.hover {
@@ -50,14 +54,8 @@
     & svg {
       width: 75%;
       height: 75%;
-
-      &:first-child {
-        fill: var(--accent);
-      }
-
-      &:last-child {
-        fill: var(--gray-darken);
-      }
+      fill: var(--accent);
+      stroke: var(--gray-dark);
     }
   }
 
@@ -75,7 +73,7 @@
     &:after {
       content: '';
       position: absolute;
-      top: 44%;
+      top: 47%;
       left: 5.5px;
       width: 75%;
       height: 5px;

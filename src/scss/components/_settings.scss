@@ -6,11 +6,18 @@
   max-width: 36rem;
   width: 100%;
   padding: 3.75rem 2.25rem;
-  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-xlg);
   color: var(--text-primary);
   background-color: var(--background-primary);
 
+  @include media.tablet {
+    max-width: 32rem;
+    padding: 3.25rem 2rem;
+  }
+
   @include media.mobile {
+    max-width: 28rem;
     padding: 2.75rem 1.75rem;
   }
 
@@ -18,6 +25,11 @@
     position: absolute;
     top: 1.25rem;
     right: 1.25rem;
+
+    @include media.tablet {
+      top: 1.125rem;
+      right: 1.125rem;
+    }
 
     @include media.mobile {
       top: 1rem;
@@ -32,6 +44,10 @@
     padding: 0;
     margin: 0;
     border: none;
+
+    @include media.tablet {
+      row-gap: 1.875rem;
+    }
 
     @include media.mobile {
       row-gap: 1.5rem;
@@ -52,6 +68,10 @@
     grid-template-columns: max-content 1fr;
     align-items: center;
     gap: 2rem 3rem;
+
+    @include media.tablet {
+      gap: 1.75rem 2.5rem;
+    }
 
     @include media.mobile {
       gap: 1.5rem 2rem;
@@ -74,7 +94,7 @@
     border: none;
     border-radius: var(--border-radius-sm);
     color: var(--text-primary);
-    background-color: var(--background-secondary);
+    background-color: var(--background-primary);
     @include mixins.transition(box-shadow);
 
     @include mixins.hover {
@@ -97,6 +117,10 @@
     padding: 0.75rem 1.75rem;
     font-size: var(--font-size-md);
     text-transform: uppercase;
+
+    @include media.tablet {
+      padding: 0.625rem 1.5rem;
+    }
 
     @include media.mobile {
       padding: 0.5rem 1.25rem;

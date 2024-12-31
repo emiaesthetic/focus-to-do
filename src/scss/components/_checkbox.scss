@@ -15,6 +15,11 @@
     border-radius: var(--border-radius-xsm);
     @include mixins.transition(box-shadow, background-color);
 
+    @include media.tablet {
+      width: 1.325rem;
+      height: 1.325rem;
+    }
+
     @include media.mobile {
       width: 1.25rem;
       height: 1.25rem;
@@ -44,9 +49,16 @@
       border-bottom: 2px solid var(--checkbox-checked-color);
       rotate: -45deg;
 
+      @include media.tablet {
+        width: 0.625rem;
+        height: 0.325rem;
+        left: 3.5px;
+      }
+
       @include media.mobile {
         width: 0.5rem;
-        height: 0.325rem;
+        height: 0.275rem;
+        left: 4px;
         border-left-width: 1.5px;
         border-bottom-width: 1.5px;
       }
