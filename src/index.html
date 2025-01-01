@@ -32,29 +32,29 @@
 
             <div class="form__addon">
               <div class="form__counter counter">
-                <input class="counter__radio" type="radio" name="counter" id="counter-4" value="4">
-                <label class="counter__label" for="counter-4">
+                <input class="counter__radio" type="radio" name="counterValue" id="counter-1" value="1">
+                <label class="counter__label selected" for="counter-1">
                   <svg aria-hidden="true">
                     <use href="img/sprite.svg#alarm"></use>
                   </svg>
                 </label>
 
-                <input class="counter__radio" type="radio" name="counter" id="counter-3" value="3">
-                <label class="counter__label" for="counter-3">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                </label>
-
-                <input class="counter__radio" type="radio" name="counter" id="counter-2" value="2">
+                <input class="counter__radio" type="radio" name="counterValue" id="counter-2" value="2">
                 <label class="counter__label" for="counter-2">
                   <svg aria-hidden="true">
                     <use href="img/sprite.svg#alarm"></use>
                   </svg>
                 </label>
 
-                <input class="counter__radio" type="radio" name="counter" id="counter-1" value="1">
-                <label class="counter__label" for="counter-1">
+                <input class="counter__radio" type="radio" name="counterValue" id="counter-3" value="3">
+                <label class="counter__label" for="counter-3">
+                  <svg aria-hidden="true">
+                    <use href="img/sprite.svg#alarm"></use>
+                  </svg>
+                </label>
+
+                <input class="counter__radio" type="radio" name="counterValue" id="counter-4" value="4">
+                <label class="counter__label" for="counter-4">
                   <svg aria-hidden="true">
                     <use href="img/sprite.svg#alarm"></use>
                   </svg>
@@ -66,7 +66,7 @@
                   </svg>
                 </button>
 
-                <div class="counter__popup counter__popup--is-open">
+                <div class="counter__popup">
                   <button
                     class="counter__button counter__decrease button button--accent"
                     type="button"
@@ -79,8 +79,8 @@
                     <svg aria-hidden="true">
                       <use href="img/sprite.svg#alarm"></use>
                     </svg>
-                    <span class="counter__display" aria-live="polite">0</span>
-                    <input class="counter__input" type="hidden" name="counter" value="0">
+                    <span class="counter__display" aria-live="polite">1</span>
+                    <input class="counter__input" type="hidden" name="counter" value="1">
                   </div>
                   <button
                     class="counter__button counter__increase button button--accent"

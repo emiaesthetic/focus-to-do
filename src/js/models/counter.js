@@ -7,6 +7,10 @@ export class Counter {
     return this.value;
   }
 
+  updateValue(newValue) {
+    this.value = newValue;
+  }
+
   decrease() {
     if (this.value > 1) {
       this.value -= 1;
