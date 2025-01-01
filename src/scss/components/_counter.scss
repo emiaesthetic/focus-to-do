@@ -17,8 +17,8 @@
     column-gap: 0.25rem;
   }
 
-  &__label {
-    display: flex;
+  &__alarm {
+    display: inline-flex;
     align-items: center;
     color: var(--text-placeholder);
 
@@ -33,18 +33,7 @@
     }
   }
 
-  &__radio {
-    @include mixins.visually-hidden;
-
-    @include mixins.focus {
-      & + .counter__label {
-        outline: var(--outline);
-        outline-offset: var(--outline-offset);
-      }
-    }
-  }
-
-  &__open-popup {
+  &__toggle-popup {
     color: var(--text-placeholder);
     @include mixins.transition(color, filter);
 
