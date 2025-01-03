@@ -1,25 +1,26 @@
 export class Form {
-  #storageKey = 'tasks';
+  #observers = [];
 
-  constructor(description, priority) {
+  constructor(description, counter, priority) {
     this.description = description;
+    this.counter = counter;
     this.priority = priority;
   }
 
-  #get() {
-    return JSON.parse(localStorage.getItem(this.#storageKey)) || [];
+  subscribe(observer) {
+    this.#observers.push(observer);
   }
 
-  #set(newTask) {
-    const tasks = this.#get().filter(
-      task => task.description !== newTask.description,
-    );
-    tasks.push(newTask);
-    localStorage.setItem(this.#storageKey, JSON.stringify(tasks));
+  unsubscribe(observer) {
+    this.#observers.filter(item => item !== observer);
+  }
+
+  notify(taskData) {
+    this.#observers.forEach(observer => observer(taskData));
   }
 
   addTask(taskData) {
     Object.assign(this, taskData);
-    this.#set(taskData);
+    this.notify(taskData);
   }
 }

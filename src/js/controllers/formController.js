@@ -6,10 +6,10 @@ import { CounterController } from './counterController.js';
 export class FormController {
   constructor({
     description = '',
-    priority = 'no-priority',
     counter = 1,
+    priority = 'no-priority',
   } = {}) {
-    this.model = new Form(description, priority);
+    this.model = new Form(description, counter, priority);
     this.view = new FormView();
     this.counter = new CounterController(counter);
 
@@ -17,7 +17,6 @@ export class FormController {
   }
 
   addTask(taskData) {
-    console.log(taskData);
     this.model.addTask(taskData);
   }
 

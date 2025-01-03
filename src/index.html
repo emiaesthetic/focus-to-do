@@ -28,6 +28,8 @@
               name="description"
               placeholder="Add a task, press Enter to save..."
               autocomplete="off"
+              minlength="1"
+              required
             >
 
             <div class="form__addon">
@@ -110,7 +112,6 @@
                 </div>
               </div>
 
-              <label class="visually-hidden" for="priority">Task priority</label>
               <select class="form__choices choices" name="priority" id="priority">
                 <option
                   value="no-priority"

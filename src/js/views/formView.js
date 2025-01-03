@@ -2,7 +2,7 @@ export class FormView {
   constructor() {
     this.form = document.querySelector('.form');
     this.description = this.form.querySelector('.form__input');
-    this.priority = this.form.querySelector('.form__select');
+    this.priority = this.form.querySelector('.form__choices');
 
     this.form.addEventListener('submit', this.submit.bind(this));
   }
@@ -13,6 +13,12 @@ export class FormView {
 
   submit(event) {
     event.preventDefault();
+
+    if (this.description.value.trim() === '') {
+      console.warn('min length must be > 0');
+      return;
+    }
+
     const formData = new FormData(event.target);
     const taskData = Object.fromEntries(formData);
     this.addTask(taskData);
