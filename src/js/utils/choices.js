@@ -1,6 +1,6 @@
 import Choices from 'choices.js';
 
-new Choices('.choices', {
+const choices = new Choices('.choices', {
   searchEnabled: false,
   itemSelectText: '',
   shouldSort: false,
@@ -54,4 +54,18 @@ new Choices('.choices', {
       },
     };
   },
+});
+
+document.querySelector('.choices').addEventListener('keydown', event => {
+  const allowedKeys = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
+
+  if (event.key === 'Tab') {
+    choices.dropdown.show();
+    return;
+  }
+
+  if (allowedKeys.includes(event.key)) {
+    choices.showDropdown();
+    return;
+  }
 });
