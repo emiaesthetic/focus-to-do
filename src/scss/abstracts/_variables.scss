@@ -16,9 +16,9 @@
   /* Colors */
   --gray-light: rgb(255 255 255 / 0.7);
   --gray: rgb(255 255 255 / 0.25);
-  --gray-dark: rgb(0 0 0 / 0.1);
+  --gray-dark: rgb(255 255 255 / 0.125);
 
-  --accent: rgb(255 175 175 / 0.9);
+  --accent: rgb(140 140 255 / 0.7);
   --high: rgb(255 78 78 / 0.7);
   --medium: rgb(255 255 59 / 0.6);
   --low: rgb(118 255 118 / 0.6);
@@ -31,7 +31,6 @@
   --background-primary: var(--gray-dark);
   --background-secondary: #292d32;
   --background-accent: var(--accent);
-  --background-gradient: radial-gradient(circle, rgb(252 156 89 / 0.55) 0%, rgb(138 53 184 / 0.45) 100%);
 
   --border-color: rgb(0 0 0 / 0.1);
 
@@ -40,7 +39,7 @@
 
   --box-shadow: 0 0 10px var(--accent);
   --drop-shadow: drop-shadow(0 0 6px var(--accent));
-  --blur: blur(10px);
+  --blur: blur(30px);
 
   /* Border-radius */
   --border-radius-xlg: 2.25rem;

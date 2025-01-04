@@ -158,6 +158,7 @@
   &__list[aria-expanded] &__item {
     position: relative;
     padding: 0.425rem;
+    border: 1px solid transparent;
     border-radius: var(--border-radius-xsm);
 
     @include media.tablet {
@@ -172,6 +173,7 @@
   &__list--dropdown &__item--selectable.is-highlighted,
   &__list[aria-expanded] &__item--selectable.is-highlighted {
     background-color: var(--background-primary);
+    border: 1px solid var(--border-color);
   }
 
   &__list--dropdown &__item--selectable.is-selected::after,

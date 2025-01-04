@@ -13,8 +13,19 @@ body {
   min-width: 36rem;
   min-height: 100vh;
   height: 100%;
-  background-image: var(--background-gradient);
+  background-image: url(../img/background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow-x: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-color: rgb(255 255 255 / 0.1);
+  }
 }
 
 ul,

@@ -22,19 +22,20 @@
     position: relative;
     display: grid;
     row-gap: 2.5rem;
-    padding: 2.5rem 1.25rem;
+    padding: 5.5rem 1.25rem 2.5rem 1.25rem;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-xlg);
     background-color: var(--background-primary);
+    backdrop-filter: var(--blur);
 
     @include media.tablet {
       row-gap: 2rem;
-      padding: 2rem 1rem;
+      padding: 5rem 1rem 2rem 1rem;
     }
 
     @include media.mobile {
       row-gap: 1.5rem;
-      padding: 1.5rem 0.75rem;
+      padding: 4rem 0.75rem 1.5rem 0.75rem;
     }
   }
 
