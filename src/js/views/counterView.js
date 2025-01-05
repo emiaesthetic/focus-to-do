@@ -12,6 +12,7 @@ export class CounterView {
     this.togglePopupBtn.addEventListener('click', this.togglePopup.bind(this));
     this.handleEscKey = this.handleEscKey.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.handleFocusOut = this.handleFocusOut.bind(this);
   }
 
   togglePopup() {
@@ -47,11 +48,13 @@ export class CounterView {
   attachPopupEventListeners() {
     document.addEventListener('keydown', this.handleEscKey);
     document.addEventListener('click', this.handleClickOutside);
+    document.addEventListener('focusout', this.handleFocusOut);
   }
 
   detachPopupEventListeners() {
     document.removeEventListener('keydown', this.handleEscKey);
     document.removeEventListener('click', this.handleClickOutside);
+    document.removeEventListener('focusout', this.handleFocusOut);
   }
 
   handleEscKey(event) {
@@ -65,6 +68,12 @@ export class CounterView {
       !this.popup.contains(event.target) &&
       !this.togglePopupBtn.contains(event.target)
     ) {
+      this.togglePopup();
+    }
+  }
+
+  handleFocusOut(event) {
+    if (!this.popup.contains(event.relatedTarget)) {
       this.togglePopup();
     }
   }
