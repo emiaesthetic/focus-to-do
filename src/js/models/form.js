@@ -1,8 +1,8 @@
 export class Form {
   #observers = [];
 
-  constructor(description, counter, priority) {
-    this.description = description;
+  constructor(name, counter, priority) {
+    this.name = name;
     this.counter = counter;
     this.priority = priority;
   }

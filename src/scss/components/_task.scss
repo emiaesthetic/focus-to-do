@@ -10,20 +10,23 @@
 }
 
 .task {
-  --padding: 0.75rem;
-  --padding-left: 1.25rem;
+  --padding: 0.5rem;
+  --padding-left: 1.5rem;
+  --padding-right: 1.5rem;
 
   font-size: var(--font-size-md);
   background-color: var(--background-primary);
 
   @include media.tablet {
-    --padding: 0.625rem;
-    --padding-left: 1rem;
+    --padding: 0.425rem;
+    --padding-left: 1.25rem;
+    --padding-right: 1.25rem;
   }
 
   @include media.mobile {
-    --padding: 0.5rem;
-    --padding-left: 0.75rem;
+    --padding: 0.325rem;
+    --padding-left: 1rem;
+    --padding-right: 1rem;
   }
 
   &__data {
@@ -31,12 +34,14 @@
     border: 1px solid var(--border-color);
 
     &:first-child {
+      padding-left: var(--padding-left);
       border-right: none;
       border-top-left-radius: var(--border-radius-lg);
       border-bottom-left-radius: var(--border-radius-lg);
     }
 
     &:last-child {
+      padding-right: var(--padding-right);
       border-left: none;
       border-top-right-radius: var(--border-radius-lg);
       border-bottom-right-radius: var(--border-radius-lg);
@@ -50,10 +55,6 @@
     & svg {
       width: 50%;
     }
-  }
-
-  &__complete {
-    padding-left: var(--padding-left);
   }
 
   &__description {
