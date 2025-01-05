@@ -26,114 +26,128 @@
               class="form__input"
               type="text"
               name="name"
-              placeholder="Add a task, press Enter to save..."
+              placeholder="Enter text..."
               autocomplete="off"
               minlength="1"
               required
             >
 
-            <div class="form__addon">
-              <div class="form__counter counter">
-                <span class="counter__alarm selected">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                </span>
-
-                <span class="counter__alarm">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                </span>
-
-                <span class="counter__alarm">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                </span>
-
-                <span class="counter__alarm">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                </span>
-
-                <button class="counter__toggle-popup" type="button" aria-label="Open counter popup">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#more-counter"></use>
-                  </svg>
-                </button>
-
-                <div class="counter__popup" aria-haspopup="true" aria-expanded="false">
-                  <button
-                    class="counter__button counter__decrease button button--accent"
-                    type="button"
-                    aria-label="Decrease by 1"
-                    aria-controls="counter-value"
-                  >
-                    -
-                  </button>
-                  <div class="counter__value" id="counter-value">
+            <div class="form__control">
+              <div class="form__addon">
+                <div class="form__counter counter">
+                  <span class="counter__alarm selected">
                     <svg aria-hidden="true">
                       <use href="img/sprite.svg#alarm"></use>
                     </svg>
-                    <span class="counter__display" aria-live="polite">1</span>
-                    <input class="counter__input" type="hidden" name="counter" value="1">
-                  </div>
-                  <button
-                    class="counter__button counter__increase button button--accent"
-                    type="button"
-                    aria-label="Increase by 1"
-                    aria-controls="counter-value"
-                  >
-                    +
+                  </span>
+
+                  <span class="counter__alarm">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                  </span>
+
+                  <span class="counter__alarm">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                  </span>
+
+                  <span class="counter__alarm">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                  </span>
+
+                  <span class="counter__alarm">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                  </span>
+
+                  <button class="counter__toggle-popup" type="button" aria-label="Open counter popup">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#more-counter"></use>
+                    </svg>
                   </button>
+
+                  <div class="counter__popup" aria-haspopup="true" aria-expanded="false">
+                    <button
+                      class="counter__button counter__decrease button button--accent"
+                      type="button"
+                      aria-label="Decrease by 1"
+                      aria-controls="counter-value"
+                    >
+                      -
+                    </button>
+                    <div class="counter__value" id="counter-value">
+                      <svg aria-hidden="true">
+                        <use href="img/sprite.svg#alarm"></use>
+                      </svg>
+                      <span class="counter__display" aria-live="polite">1</span>
+                      <input class="counter__input" type="hidden" name="counter" value="1">
+                    </div>
+                    <button
+                      class="counter__button counter__increase button button--accent"
+                      type="button"
+                      aria-label="Increase by 1"
+                      aria-controls="counter-value"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
+
+                <select class="form__choices choices" name="priority" id="priority">
+                  <option
+                    value="no-priority"
+                    data-custom-properties="{
+                      &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
+                      &quot;class&quot;: &quot;choices__icon no-priority&quot;,
+                      &quot;label&quot;: &quot;no priority&quot;
+                    }"
+                    selected
+                  >
+                    no priority
+                  </option>
+                  <option
+                    value="high"
+                    data-custom-properties="{
+                      &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
+                      &quot;class&quot;: &quot;choices__icon high&quot;,
+                      &quot;label&quot;: &quot;high priority&quot;
+                    }"
+                  >
+                    high priority
+                  </option>
+                  <option
+                    value="medium"
+                    data-custom-properties="{
+                      &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
+                      &quot;class&quot;: &quot;choices__icon medium&quot;,
+                      &quot;label&quot;: &quot;medium priority&quot;
+                    }"
+                  >
+                    medium priority
+                  </option>
+                  <option
+                    value="low"
+                    data-custom-properties="{
+                      &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
+                      &quot;class&quot;: &quot;choices__icon low&quot;,
+                      &quot;label&quot;: &quot;low priority&quot;
+                    }"
+                  >
+                    low priority
+                  </option>
+                </select>
               </div>
 
-              <select class="form__choices choices" name="priority" id="priority">
-                <option
-                  value="no-priority"
-                  data-custom-properties="{
-                    &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
-                    &quot;class&quot;: &quot;choices__icon no-priority&quot;,
-                    &quot;label&quot;: &quot;no priority&quot;
-                  }"
-                  selected
-                >
-                  no priority
-                </option>
-                <option
-                  value="high"
-                  data-custom-properties="{
-                    &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
-                    &quot;class&quot;: &quot;choices__icon high&quot;,
-                    &quot;label&quot;: &quot;high priority&quot;
-                  }"
-                >
-                  high priority
-                </option>
-                <option
-                  value="medium"
-                  data-custom-properties="{
-                    &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
-                    &quot;class&quot;: &quot;choices__icon medium&quot;,
-                    &quot;label&quot;: &quot;medium priority&quot;
-                  }"
-                >
-                  medium priority
-                </option>
-                <option
-                  value="low"
-                  data-custom-properties="{
-                    &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
-                    &quot;class&quot;: &quot;choices__icon low&quot;,
-                    &quot;label&quot;: &quot;low priority&quot;
-                  }"
-                >
-                  low priority
-                </option>
-              </select>
+              <button class="form__button button button--accent" type="submit">
+                <svg aria-hidden="true">
+                  <use href="img/sprite.svg#add"></use>
+                </svg>
+              </button>
             </div>
           </div>
         </form>

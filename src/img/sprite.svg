@@ -1,4 +1,7 @@
 <svg width="0" height="0" class="hidden">
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="add">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11V5C11 4.44772 11.4477 4 12 4Z" fill="currentColor"></path>
+  </symbol>
   <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" id="alarm">
     <path d="M12.8433 23.2963C18.0071 23.2963 22.1933 19.1102 22.1933 13.9463C22.1933 8.78245 18.0071 4.59631 12.8433 4.59631C7.6794 4.59631 3.49327 8.78245 3.49327 13.9463C3.49327 19.1102 7.6794 23.2963 12.8433 23.2963Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
     <path d="M10.2933 1.19632H15.3933" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
