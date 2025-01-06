@@ -1,7 +1,6 @@
 import '../index.html';
 import '../scss/app.scss';
 import '../img/no-tasks.svg';
-import './utils/choices.js';
 import './utils/animation.js';
 
 import { SettingsController } from './controllers/settingsController.js';

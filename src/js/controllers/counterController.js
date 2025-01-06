@@ -28,4 +28,10 @@ export class CounterController {
     this.view.highlightAlarmsByValue(this.model.getValue());
     this.view.update(this.model.getValue());
   }
+
+  reset() {
+    this.model.updateValue(1);
+    this.view.highlightAlarmsByValue(this.model.getValue());
+    this.view.update(this.model.getValue());
+  }
 }

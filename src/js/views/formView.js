@@ -1,8 +1,10 @@
+import { SelectView } from './selectView.js';
+
 export class FormView {
   constructor() {
     this.form = document.querySelector('.form');
     this.name = this.form.querySelector('.form__input');
-    this.priority = this.form.querySelector('.form__choices');
+    this.priority = new SelectView();
 
     this.form.addEventListener('submit', this.submit.bind(this));
   }
@@ -22,7 +24,17 @@ export class FormView {
     const formData = new FormData(event.target);
     const taskData = Object.fromEntries(formData);
     this.addTask(taskData);
+    this.reset();
+  }
+
+  bindResetCounter(handler) {
+    this.resetCounter = handler;
+  }
+
+  reset() {
     this.form.reset();
+    this.priority.reset();
+    this.resetCounter();
   }
 
   render(taskData) {

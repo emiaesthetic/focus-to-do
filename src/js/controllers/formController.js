@@ -10,6 +10,11 @@ export class FormController {
     this.counter = new CounterController(counter);
 
     this.view.bindAddTask(this.addTask.bind(this));
+    this.view.bindResetCounter(this.resetCounter.bind(this));
+  }
+
+  resetCounter() {
+    this.counter.reset();
   }
 
   addTask(taskData) {
