@@ -12,6 +12,7 @@
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-xlg);
   background-color: var(--background-primary);
+  backdrop-filter: var(--blur);
 
   @include media.tablet {
     grid-template-columns: 20rem;

@@ -9,8 +9,11 @@
   opacity: 0;
   scale: 0.5;
   color: var(--text-primary);
-  background-color: var(--background-primary);
-  backdrop-filter: var(--blur);
+  background-image: url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @include mixins.transparent-overlay;
 
   &--is-open {
     visibility: visible;
