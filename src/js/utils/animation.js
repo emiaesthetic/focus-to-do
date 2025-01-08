@@ -6,6 +6,7 @@ const radius = getComputedStyle(timerProgress)
   .getPropertyValue('--r')
   .match(/\d+/g)
   .at(0);
+
 const perimeter = 2 * Math.PI * radius;
 timerProgress.style.setProperty('--stroke-dasharray', `${perimeter}`);
 timerProgress.style.setProperty('--stroke-dashoffset', `${perimeter}`);
@@ -30,17 +31,3 @@ const animation = duration => {
 startBtn.addEventListener('click', () => {
   animation(duration);
 });
-
-const ticks = timerProgress.querySelector('#ticks');
-const numTicks = 60;
-
-for (let i = 0; i < numTicks; i++) {
-  const tick = ticks.firstElementChild.cloneNode();
-  tick.setAttribute(
-    'transform',
-    `rotate(${i * (360 / numTicks)} 120 120) translate(0, 220)`,
-  );
-  timerProgress.appendChild(tick);
-}
-
-ticks.firstElementChild.remove();
