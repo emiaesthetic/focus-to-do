@@ -109,4 +109,14 @@ export class TaskListView {
       }
     });
   }
+
+  bindStartTask(handler) {
+    this.wrapper.addEventListener('click', ({ target }) => {
+      if (target.closest('.task__start > .task__button')) {
+        const task = target.closest('.task');
+        const taskID = task.dataset.id;
+        handler(taskID);
+      }
+    });
+  }
 }

@@ -46,6 +46,10 @@ export class TaskList {
     );
   }
 
+  getTask(id) {
+    return this.tasks.find(task => task.id === id);
+  }
+
   addTask(taskData) {
     const task = new Task(taskData);
     this.tasks.push(task);
