@@ -7,6 +7,10 @@ export class TimerController {
     this.view = new TimerView();
   }
 
+  update(newSettings) {
+    this.model.update(newSettings);
+  }
+
   render(task) {
     this.view.open();
     this.view.render(task, this.model);

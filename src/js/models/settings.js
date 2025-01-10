@@ -1,6 +1,7 @@
 export class Settings {
   static #instance;
   #storageKey = 'settings';
+  #observers = [];
 
   constructor() {
     if (Settings.#instance) {
@@ -30,8 +31,21 @@ export class Settings {
     localStorage.setItem(this.#storageKey, JSON.stringify(newSettings));
   }
 
+  subscribe(observer) {
+    this.#observers.push(observer);
+  }
+
+  unsubscribe(observer) {
+    this.#observers.filter(item => item !== observer);
+  }
+
+  notify(newSettings) {
+    this.#observers.forEach(observer => observer(newSettings));
+  }
+
   update(newSettings) {
     Object.assign(this, newSettings);
     this.#set(newSettings);
+    this.notify(newSettings);
   }
 }

@@ -13,6 +13,9 @@ export class TaskListController {
     this.settings.init();
 
     this.timer = new TimerController(this.settings.model);
+    this.settings.model.subscribe(newSettings =>
+      this.timer.update(newSettings),
+    );
 
     this.view.bindRemoveTask(this.removeTask.bind(this));
     this.view.bindStartTask(this.startTask.bind(this));
