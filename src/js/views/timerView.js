@@ -6,6 +6,7 @@ export class TimerView {
     this.progress = this.timer.querySelector('.timer__progress');
     this.time = this.timer.querySelector('.timer__time');
     this.button = this.timer.querySelector('.timer__button');
+    this.audio = new Audio('../audio/ding.mp3');
   }
 
   open() {
@@ -38,7 +39,6 @@ export class TimerView {
 
   updateTime(duration, timeRemaining) {
     timeRemaining = timeRemaining || duration / 1000;
-    console.log(timeRemaining);
     this.time.textContent = this.#timeToString(timeRemaining);
 
     const intervalID = setInterval(() => {
@@ -47,9 +47,14 @@ export class TimerView {
 
       if (timeRemaining < 0) {
         this.time.textContent = '00:00';
+        this.playSound();
         clearInterval(intervalID);
       }
     }, 1000);
+  }
+
+  playSound() {
+    this.audio.play();
   }
 
   #timeToString(timeRemaining) {
