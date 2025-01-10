@@ -35,38 +35,52 @@
   }
 
   &__progress {
-    --progress-width: 16rem;
-    --progress-height: 16rem;
-    --cx: 120;
-    --cy: 120;
-    --r: 112;
-    --stroke-width: 16;
-    --stroke-dasharray: 710;
-    --stroke-dashoffset: 710;
+    --border-width: 16px;
+    --angle: 0deg;
 
-    width: var(--progress-width);
-    height: var(--progress-height);
-    rotate: -90deg;
-    filter: var(--drop-shadow);
+    position: relative;
+    width: 18rem;
+    height: 18rem;
 
     @include media.tablet {
-      scale: 0.8;
+      --border-width: 14px;
+
+      width: 16rem;
+      height: 16rem;
     }
 
     @include media.mobile {
-      scale: 0.7;
-    }
-  }
+      --border-width: 12px;
 
-  &__circle {
-    cx: var(--cx);
-    cy: var(--cy);
-    r: var(--r);
-    stroke: var(--text-accent);
-    stroke-width: var(--stroke-width);
-    stroke-dasharray: var(--stroke-dasharray);
-    stroke-dashoffset: var(--stroke-dashoffset);
-    fill: none;
+      width: 14rem;
+      height: 14rem;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 110;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-image: conic-gradient(
+        var(--accent) var(--angle),
+        var(--background-primary) var(--angle)
+      );
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: var(--border-width);
+      left: var(--border-width);
+      z-index: 111;
+      width: calc(100% - var(--border-width) * 2);
+      height: calc(100% - var(--border-width) * 2);
+      border-radius: 50%;
+      background: var(--background-linear-gradient);
+    }
   }
 
   &__time {

@@ -6,14 +6,6 @@ export class TimerView {
     this.progress = this.timer.querySelector('.timer__progress');
     this.time = this.timer.querySelector('.timer__time');
     this.button = this.timer.querySelector('.timer__button');
-
-    this.radius = getComputedStyle(this.progress)
-      .getPropertyValue('--r')
-      .match(/\d+/g)
-      .at(0);
-    this.perimeter = 2 * Math.PI * this.radius;
-    this.progress.style.setProperty('--stroke-dasharray', `${this.perimeter}`);
-    this.progress.style.setProperty('--stroke-dashoffset', `${this.perimeter}`);
   }
 
   open() {
@@ -35,8 +27,8 @@ export class TimerView {
           ? 1
           : (timestamp - startTime) / duration;
 
-      const dashoffset = that.perimeter * (1 - progress);
-      that.progress.style.setProperty('--stroke-dashoffset', `${dashoffset}`);
+      const angle = progress * 360;
+      that.progress.style.setProperty('--angle', `${angle}deg`);
 
       if (progress < 1) {
         requestAnimationFrame(step);
