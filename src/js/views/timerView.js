@@ -6,7 +6,11 @@ export class TimerView {
     this.progress = this.timer.querySelector('.timer__progress');
     this.time = this.timer.querySelector('.timer__time');
     this.button = this.timer.querySelector('.timer__button');
+    this.stopBtn = this.timer.querySelector('.timer__button:nth-child(2)');
     this.audio = new Audio('../audio/ding.mp3');
+
+    this.button.addEventListener('click', this.handleBtnClick.bind(this));
+    this.stopBtn.addEventListener('click', this.handleStopBtnClick.bind(this));
   }
 
   open() {
@@ -17,58 +21,55 @@ export class TimerView {
     this.overlay.classList.remove('overlay--is-open');
   }
 
-  animation(duration) {
-    let startTime = NaN;
-    const that = this;
-
-    requestAnimationFrame(function step(timestamp) {
-      startTime ||= timestamp;
-      const progress =
-        timestamp - startTime > duration
-          ? 1
-          : (timestamp - startTime) / duration;
-
-      const angle = progress * 360;
-      that.progress.style.setProperty('--angle', `${angle}deg`);
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
-    });
+  updateAngle(angle) {
+    this.progress.style.setProperty('--angle', `${angle}deg`);
   }
 
-  updateTime(duration, timeRemaining) {
-    timeRemaining = timeRemaining || duration / 1000;
-    this.time.textContent = this.#timeToString(timeRemaining);
-
-    const intervalID = setInterval(() => {
-      timeRemaining -= 1;
-      this.time.textContent = this.#timeToString(timeRemaining);
-
-      if (timeRemaining < 0) {
-        this.time.textContent = '00:00';
-        this.playSound();
-        clearInterval(intervalID);
-      }
-    }, 1000);
+  updateTime(timeRemaining) {
+    this.time.textContent = timeRemaining;
   }
 
   playSound() {
     this.audio.play();
   }
 
-  #timeToString(timeRemaining) {
-    const minutes = Math.floor(timeRemaining / 60)
-      .toString()
-      .padStart(2, '0');
-    const seconds = (timeRemaining % 60).toString().padStart(2, '0');
-    return `${minutes}:${seconds}`;
+  bindPauseTimer(handler) {
+    this.pauseTimer = handler;
   }
 
-  render(task, settings) {
+  bindContinueTimer(handler) {
+    this.continueTimer = handler;
+  }
+
+  bindStopTimer(handler) {
+    this.stopTimer = handler;
+  }
+
+  handleBtnClick({ target }) {
+    if (target.dataset.state === 'pause') {
+      this.button.textContent = 'Continue';
+      this.button.dataset.state = 'continue';
+      this.stopBtn.classList.remove('timer__button--hide');
+      this.pauseTimer();
+    } else if (target.dataset.state === 'continue') {
+      this.button.textContent = 'Pause';
+      this.button.dataset.state = 'pause';
+      this.stopBtn.classList.add('timer__button--hide');
+      this.continueTimer();
+    }
+  }
+
+  handleStopBtnClick() {
+    this.stopBtn.classList.add('timer__button--hide');
+    this.button.textContent = 'Pause';
+    this.button.dataset.state = 'pause';
+    this.stopTimer();
+    this.close();
+  }
+
+  render(task, startTime) {
+    this.open();
     this.title.textContent = task.name;
-    const timestamp = settings.taskDuration * 60 * 1000;
-    this.animation(timestamp);
-    this.updateTime(timestamp);
+    this.time.textContent = startTime;
   }
 }
