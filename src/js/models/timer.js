@@ -1,7 +1,8 @@
 export class Timer {
   static #instance;
+  #breakCounter = 1;
 
-  constructor(taskDuration, shortBreak, longBreak, longAfterBreak) {
+  constructor(taskDuration, shortBreak, longBreak, longBreakAfter) {
     if (Timer.#instance) {
       return Timer.#instance;
     }
@@ -9,7 +10,7 @@ export class Timer {
     this.taskDuration = this.#minutesToMilliseconds(taskDuration);
     this.shortBreak = this.#minutesToMilliseconds(shortBreak);
     this.longBreak = this.#minutesToMilliseconds(longBreak);
-    this.longAfterBreak = this.#minutesToMilliseconds(longAfterBreak);
+    this.longBreakAfter = longBreakAfter;
 
     this.timeRemaining = 0;
     this.angle = 0;
@@ -23,14 +24,14 @@ export class Timer {
     return time * 60 * 1000;
   }
 
-  updateSettings({ taskDuration, shortBreak, longBreak, longAfterBreak }) {
+  updateSettings({ taskDuration, shortBreak, longBreak, longBreakAfter }) {
     this.taskDuration = this.#minutesToMilliseconds(taskDuration);
     this.shortBreak = this.#minutesToMilliseconds(shortBreak);
     this.longBreak = this.#minutesToMilliseconds(longBreak);
-    this.longAfterBreak = this.#minutesToMilliseconds(longAfterBreak);
+    this.longBreakAfter = longBreakAfter;
   }
 
-  getTimestampToString(timestamp) {
+  timeToString(timestamp) {
     const allSeconds = timestamp / 1000;
     const minutes = Math.floor(allSeconds / 60)
       .toString()
@@ -39,25 +40,15 @@ export class Timer {
     return `${minutes}:${seconds}`;
   }
 
-  startTimer(duration, callback) {
-    this.timeRemaining = duration;
-
-    const intervalID = setInterval(() => {
-      if (this.timeRemaining <= 0 || this.paused) {
-        clearInterval(intervalID);
-        return;
-      }
-
-      this.timeRemaining -= 1000;
-      callback(this.timeRemaining);
-    }, 1000);
+  decrementTimeRemaining() {
+    this.timeRemaining -= 1000;
   }
 
-  pause() {
+  setPause() {
     this.paused = true;
   }
 
-  continue() {
+  unsetPause() {
     this.paused = false;
   }
 
@@ -67,9 +58,25 @@ export class Timer {
   }
 
   resetAnimation() {
-    this.timeRemaining = 0;
     this.angle = 0;
     this.lastAngle = 0;
+  }
+
+  resetState() {
+    this.timeRemaining = 0;
     this.paused = false;
+    this.resetAnimation();
+  }
+
+  getIncrementCounter() {
+    return this.#breakCounter;
+  }
+
+  incrementBreakCounter() {
+    this.#breakCounter += 1;
+  }
+
+  resetBreakCounter() {
+    this.#breakCounter = 1;
   }
 }

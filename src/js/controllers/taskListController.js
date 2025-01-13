@@ -36,7 +36,7 @@ export class TaskListController {
 
   startTask(taskID) {
     const task = this.model.getTask(taskID);
-    this.timer.render(task);
+    this.timer.startTask(task);
   }
 
   init() {

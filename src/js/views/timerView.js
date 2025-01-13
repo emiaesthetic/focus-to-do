@@ -33,43 +33,80 @@ export class TimerView {
     this.audio.play();
   }
 
-  bindPauseTimer(handler) {
-    this.pauseTimer = handler;
+  bindStart(handler) {
+    this.start = handler;
   }
 
-  bindContinueTimer(handler) {
-    this.continueTimer = handler;
+  bindPause(handler) {
+    this.pause = handler;
   }
 
-  bindStopTimer(handler) {
-    this.stopTimer = handler;
+  bindContinue(handler) {
+    this.continue = handler;
+  }
+
+  bindStop(handler) {
+    this.stop = handler;
+  }
+
+  bindDone(handler) {
+    this.done = handler;
   }
 
   handleBtnClick({ target }) {
-    if (target.dataset.state === 'pause') {
-      this.button.textContent = 'Continue';
-      this.button.dataset.state = 'continue';
-      this.stopBtn.classList.remove('timer__button--hide');
-      this.pauseTimer();
-    } else if (target.dataset.state === 'continue') {
-      this.button.textContent = 'Pause';
-      this.button.dataset.state = 'pause';
-      this.stopBtn.classList.add('timer__button--hide');
-      this.continueTimer();
+    switch (target.dataset.state) {
+      case 'start':
+        this.updateBtn('pause');
+        this.start();
+        break;
+
+      case 'pause':
+        this.updateBtn('continue');
+        this.showStopButton();
+        this.pause();
+        break;
+
+      case 'continue':
+        this.updateBtn('pause');
+        this.hideStopButton();
+        this.continue();
+        break;
+
+      case 'done':
+        this.updateBtn('start');
+        this.done();
+        break;
+
+      default:
+        break;
     }
   }
 
-  handleStopBtnClick() {
+  showStopButton() {
+    this.stopBtn.classList.remove('timer__button--hide');
+  }
+
+  hideStopButton() {
     this.stopBtn.classList.add('timer__button--hide');
-    this.button.textContent = 'Pause';
-    this.button.dataset.state = 'pause';
-    this.stopTimer();
+  }
+
+  handleStopBtnClick() {
+    this.hideStopButton();
+    this.updateBtn('pause');
+    this.stop();
     this.close();
+  }
+
+  updateBtn(state) {
+    if (typeof state === 'string') {
+      this.button.textContent = state.toLocaleUpperCase();
+      this.button.dataset.state = state.toLocaleLowerCase();
+    }
   }
 
   render(task, startTime) {
     this.open();
     this.title.textContent = task.name;
-    this.time.textContent = startTime;
+    this.updateTime(startTime);
   }
 }
