@@ -1,21 +1,15 @@
 import '../index.html';
 import '../scss/app.scss';
-import './modules/animation.js';
+import '../img/no-tasks.svg';
+import '../audio/ding.mp3';
 
-import { Task } from './modules/task.js';
-import { Tomato } from './modules/tomato.js';
+import { FormController } from './controllers/formController.js';
+import { TaskListController } from './controllers/taskListController.js';
 
-const course = new Task('Course', 4);
-const english = new Task('English', 2);
-const reading = new Task('Reading', 1);
+const formController = new FormController();
+formController.init();
 
-const tomato = new Tomato({
-  taskLength: 1,
-  shortBreakLength: 1,
-  longBreakLength: 2,
-  tasks: [course, english, reading],
-});
+const taskListController = new TaskListController();
+taskListController.init();
 
-tomato.activateTask(course.getID());
-tomato.startTask();
-tomato.incrementTaskCounter(course.getID());
+formController.model.subscribe(data => taskListController.addTask(data));

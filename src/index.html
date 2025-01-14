@@ -10,236 +10,155 @@
 
 <body>
   <div class="app">
-    <div class="app__container container">
-      <button class="app__settings-button button button--settings" type="button" aria-label="Open settings menu">
-        <svg aria-label="Open setting menu">
-          <use href="img/sprite.svg#settings"></use>
-        </svg>
-      </button>
+    <div class="container">
+      <div class="app__content">
+        <button class="app__settings-button button button--settings" type="button" aria-label="Open settings menu">
+          <svg aria-label="Open setting menu">
+            <use href="img/sprite.svg#settings"></use>
+          </svg>
+        </button>
 
-      <h1 class="app__title">Focus To Do</h1>
+        <h1 class="app__title visually-hidden">Focus To Do</h1>
 
-      <form class="form">
-        <input class="form__input" type="text" name="description" placeholder="Add a task, press Enter to save...">
+        <form class="form">
+          <div class="form__input-wrapper">
+            <input
+              class="form__input"
+              type="text"
+              name="name"
+              placeholder="Enter text..."
+              autocomplete="off"
+              minlength="1"
+              required
+            >
 
-        <div class="form__select-wrapper select-wrapper">
-          <label class="visually-hidden" for="task-priority">Приоритет задачи</label>
-          <select class="select" id="task-priority" name="priority">
-            <option class="select__option" value="no-priority" selected>no priority</option>
-            <option class="select__option" value="high">high</option>
-            <option class="select__option" value="medium">medium</option>
-            <option class="select__option" value="low">low</option>
-          </select>
-        </div>
+            <div class="form__control">
+              <div class="form__addon">
+                <div class="form__counter counter">
+                  <span class="counter__alarm selected">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                  </span>
 
-        <div class="form__counter counter">
-          <button class="counter__button button button--accent" type="button" aria-label="Decrease by 1">
-            -
-          </button>
-          <div class="counter__value">
-            <svg aria-hidden="true">
-              <use href="img/sprite.svg#alarm"></use>
-            </svg>
-            <span class="counter__count">0</span>
+                  <span class="counter__alarm">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                  </span>
+
+                  <span class="counter__alarm">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                  </span>
+
+                  <span class="counter__alarm">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                  </span>
+
+                  <span class="counter__alarm">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#alarm"></use>
+                    </svg>
+                  </span>
+
+                  <button class="counter__toggle-popup" type="button" aria-label="Open counter popup">
+                    <svg aria-hidden="true">
+                      <use href="img/sprite.svg#more-counter"></use>
+                    </svg>
+                  </button>
+
+                  <div class="counter__popup" aria-haspopup="true" aria-expanded="false">
+                    <button
+                      class="counter__button counter__decrease button button--accent"
+                      type="button"
+                      aria-label="Decrease by 1"
+                      aria-controls="counter-value"
+                    >
+                      -
+                    </button>
+                    <div class="counter__value" id="counter-value">
+                      <svg aria-hidden="true">
+                        <use href="img/sprite.svg#alarm"></use>
+                      </svg>
+                      <span class="counter__display" aria-live="polite">1</span>
+                      <input class="counter__input" type="hidden" name="counter" value="1">
+                    </div>
+                    <button
+                      class="counter__button counter__increase button button--accent"
+                      type="button"
+                      aria-label="Increase by 1"
+                      aria-controls="counter-value"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <select class="form__choices choices" name="priority" id="priority">
+                  <option
+                    value="no-priority"
+                    data-custom-properties="{
+                      &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
+                      &quot;class&quot;: &quot;choices__icon no-priority&quot;,
+                      &quot;label&quot;: &quot;no priority&quot;
+                    }"
+                    selected
+                  >
+                    no priority
+                  </option>
+                  <option
+                    value="high"
+                    data-custom-properties="{
+                      &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
+                      &quot;class&quot;: &quot;choices__icon high&quot;,
+                      &quot;label&quot;: &quot;high priority&quot;
+                    }"
+                  >
+                    high priority
+                  </option>
+                  <option
+                    value="medium"
+                    data-custom-properties="{
+                      &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
+                      &quot;class&quot;: &quot;choices__icon medium&quot;,
+                      &quot;label&quot;: &quot;medium priority&quot;
+                    }"
+                  >
+                    medium priority
+                  </option>
+                  <option
+                    value="low"
+                    data-custom-properties="{
+                      &quot;url&quot;: &quot;img/sprite.svg#priority&quot;,
+                      &quot;class&quot;: &quot;choices__icon low&quot;,
+                      &quot;label&quot;: &quot;low priority&quot;
+                    }"
+                  >
+                    low priority
+                  </option>
+                </select>
+              </div>
+
+              <button class="form__button button button--accent" type="submit">
+                <svg aria-hidden="true">
+                  <use href="img/sprite.svg#add"></use>
+                </svg>
+              </button>
+            </div>
           </div>
-          <button class="counter__button button button--accent" type="button" aria-label="Increase by 1">
-            +
-          </button>
-        </div>
-      </form>
+        </form>
 
-      <div class="no-tasks">
-        <img class="no-tasks__image" src="img/no-tasks.svg" alt="Task list is empty">
+        <div class="task-wrapper"></div>
       </div>
-
-      <table class="tasks" aria-label="Tasks">
-        <tbody class="tasks__rows">
-          <tr class="task">
-            <td class="task__date task__complete">
-              <label class="task__checkbox checkbox">
-                <input class="checkbox__input" type="checkbox" name="checkbox">
-              </label>
-            </td>
-            <td class="task__date task__start">
-              <button class="task__button button" type="button" aria-label="Start focus">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#start"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__description">
-              <p class="task__name">Course. Focus To Do: design.</p>
-              <div class="task__pomodoro">
-                <svg class="task__pomodoro-priority high" aria-hidden="true">
-                  <use href="img/sprite.svg#priority"></use>
-                </svg>
-                <span class="task__pomodoro-done">0</span>
-                <span class="task__pomodoro-divide">/</span>
-                <div class="task__pomodoro-total">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                  <span class="task__pomodoro-number">4</span>
-                </div>
-              </div>
-            </td>
-            <td class="task__date task__edit">
-              <button class="task__button button button--transparent" type="button" aria-label="Edit task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#edit"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__delete">
-              <button class="task__button button button--transparent" type="button" aria-label="Delete task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#trash"></use>
-                </svg>
-              </button>
-            </td>
-          </tr>
-
-          <tr class="task">
-            <td class="task__date task__complete">
-              <label class="task__checkbox checkbox">
-                <input class="checkbox__input" type="checkbox" name="checkbox">
-              </label>
-            </td>
-            <td class="task__date task__start">
-              <button class="task__button button" type="button" aria-label="Start focus">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#start"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__description">
-              <p class="task__name">English. Lessons and "Friends".</p>
-              <div class="task__pomodoro">
-                <svg class="task__pomodoro-priority medium" aria-hidden="true">
-                  <use href="img/sprite.svg#priority"></use>
-                </svg>
-                <span class="task__pomodoro-done">0</span>
-                <span class="task__pomodoro-divide">/</span>
-                <div class="task__pomodoro-total">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                  <span class="task__pomodoro-number">4</span>
-                </div>
-              </div>
-            </td>
-            <td class="task__date task__edit">
-              <button class="task__button button button--transparent" type="button" aria-label="Edit task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#edit"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__delete">
-              <button class="task__button button button--transparent" type="button" aria-label="Delete task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#trash"></use>
-                </svg>
-              </button>
-            </td>
-          </tr>
-
-          <tr class="task">
-            <td class="task__date task__complete">
-              <label class="task__checkbox checkbox">
-                <input class="checkbox__input" type="checkbox" name="checkbox">
-              </label>
-            </td>
-            <td class="task__date task__start">
-              <button class="task__button button" type="button" aria-label="Start focus">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#start"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__description">
-              <p class="task__name">Reading.</p>
-              <div class="task__pomodoro">
-                <svg class="task__pomodoro-priority low" aria-hidden="true">
-                  <use href="img/sprite.svg#priority"></use>
-                </svg>
-                <span class="task__pomodoro-done">0</span>
-                <span class="task__pomodoro-divide">/</span>
-                <div class="task__pomodoro-total">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                  <span class="task__pomodoro-number">4</span>
-                </div>
-              </div>
-            </td>
-            <td class="task__date task__edit">
-              <button class="task__button button button--transparent" type="button" aria-label="Edit task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#edit"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__delete">
-              <button class="task__button button button--transparent" type="button" aria-label="Delete task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#trash"></use>
-                </svg>
-              </button>
-            </td>
-          </tr>
-
-          <tr class="task">
-            <td class="task__date task__complete">
-              <label class="task__checkbox checkbox">
-                <input class="checkbox__input" type="checkbox" name="checkbox">
-              </label>
-            </td>
-            <td class="task__date task__start">
-              <button class="task__button button" type="button" aria-label="Start focus">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#start"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__description">
-              <p class="task__name">Go to the gym.</p>
-              <div class="task__pomodoro">
-                <svg class="task__pomodoro-priority no-priority" aria-hidden="true">
-                  <use href="img/sprite.svg#priority"></use>
-                </svg>
-                <span class="task__pomodoro-done">0</span>
-                <span class="task__pomodoro-divide">/</span>
-                <div class="task__pomodoro-total">
-                  <svg aria-hidden="true">
-                    <use href="img/sprite.svg#alarm"></use>
-                  </svg>
-                  <span class="task__pomodoro-number">4</span>
-                </div>
-              </div>
-            </td>
-            <td class="task__date task__edit">
-              <button class="task__button button button--transparent" type="button" aria-label="Edit task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#edit"></use>
-                </svg>
-              </button>
-            </td>
-            <td class="task__date task__delete">
-              <button class="task__button button button--transparent" type="button" aria-label="Delete task">
-                <svg aria-hidden="true">
-                  <use href="img/sprite.svg#trash"></use>
-                </svg>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 
-  <div class="overlay">
-    <div class="container">
+  <div class="overlay" aria-hidden="true" role="dialog" aria-label="Settings">
+    <div class="overlay__container container">
       <form class="settings">
         <button class="settings__close-button button button--cross" type="button">
           <span class="visually-hidden">Close settings menu</span>
@@ -249,20 +168,20 @@
           <h2 class="settings__title">Settings</h2>
 
           <div class="settings__body">
-            <label class="settings__label">Pomodoro Length
-              <input class="settings__input" type="number" min="1" step="1" placeholder="Number of minutes">
+            <label class="settings__label">Task Duration
+              <input class="settings__input" name="taskDuration" type="number" min="1" step="1" placeholder="Number of minutes" required>
             </label>
 
-            <label class="settings__label">Short Break Length
-              <input class="settings__input" type="number" min="1" step="1" placeholder="Number of minutes">
+            <label class="settings__label">Short Break
+              <input class="settings__input" name="shortBreak" type="number" min="1" step="1" placeholder="Number of minutes" required>
             </label>
 
-            <label class="settings__label">Long Break Length
-              <input class="settings__input" type="number" min="1" step="1" placeholder="Number of minutes">
+            <label class="settings__label">Long Break
+              <input class="settings__input" name="longBreak" type="number" min="1" step="1" placeholder="Number of minutes" required>
             </label>
 
             <label class="settings__label">Long Break After
-              <input class="settings__input" type="number" min="1" step="1" placeholder="Number of pomodoros">
+              <input class="settings__input" name="longBreakAfter" type="number" min="1" step="1" placeholder="Number of pomodoros" required>
             </label>
           </div>
 
@@ -272,15 +191,20 @@
     </div>
   </div>
 
-  <div class="overlay">
-    <div class="container">
-      <div class="timer" data-timer-deadline="1">
-        <h2 class="timer__title">Course. Focus To Do: design.</h2>
+  <div class="overlay" aria-hidden="true" role="dialog" aria-label="Timer">
+    <div class="overlay__container container">
+      <div class="timer">
+        <div class="timer__header"></div>
         <div class="timer__content">
-          <div class="timer__progress"></div>
-          <span class="timer__time">25:00</span>
+          <div class="timer__progress">
+            <span class="visually-hidden">Progress bar</span>
+          </div>
+          <span class="timer__time"></span>
         </div>
-        <button class="timer__button button button--accent" type="button">Start</button>
+        <div class="timer__buttons">
+          <button class="timer__button button button--accent" type="button" data-state="pause">Pause</button>
+          <button class="timer__button timer__button--hide button button--accent" type="button">Stop</button>
+        </div>
       </div>
     </div>
   </div>
