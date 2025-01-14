@@ -1,4 +1,6 @@
 export class TimerView {
+  #lastFocusedElement = null;
+
   constructor() {
     this.timer = document.querySelector('.timer');
     this.overlay = this.timer.closest('.overlay');
@@ -15,10 +17,14 @@ export class TimerView {
 
   open() {
     this.overlay.classList.add('overlay--is-open');
+    this.overlay.setAttribute('aria-hidden', 'false');
+    this.button.focus();
   }
 
   close() {
     this.overlay.classList.remove('overlay--is-open');
+    this.overlay.setAttribute('aria-hidden', 'true');
+    this.#lastFocusedElement.focus();
   }
 
   updateAngle(angle) {
@@ -108,5 +114,8 @@ export class TimerView {
     this.open();
     this.title.textContent = task.name;
     this.updateTime(startTime);
+    this.#lastFocusedElement = document.querySelector(
+      `[data-id="${task.id}"] .task__start >  .task__button`,
+    );
   }
 }

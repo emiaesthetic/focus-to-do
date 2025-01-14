@@ -22,10 +22,14 @@ export class SettingsView {
 
   open() {
     this.overlay.classList.add('overlay--is-open');
+    this.overlay.setAttribute('aria-hidden', 'false');
+    this.closeBtn.focus();
   }
 
   close() {
     this.overlay.classList.remove('overlay--is-open');
+    this.overlay.setAttribute('aria-hidden', 'true');
+    this.openBtn.focus();
   }
 
   submit(event) {
