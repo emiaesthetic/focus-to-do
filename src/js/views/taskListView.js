@@ -3,7 +3,7 @@ export class TaskListView {
     this.wrapper = document.querySelector('.task-wrapper');
   }
 
-  createTask({ id, name, counter, priority }) {
+  createTask({ id, name, counter, priority, pomodoroDone }) {
     const task = document.createElement('tr');
     task.className = 'task';
     task.dataset.id = id;
@@ -30,7 +30,7 @@ export class TaskListView {
             <svg class="task__pomodoro-priority ${priority}" aria-hidden="true">
               <use href="img/sprite.svg#priority"></use>
             </svg>
-            <span class="task__pomodoro-done">0</span>
+            <span class="task__pomodoro-done">${pomodoroDone}</span>
             <span class="task__pomodoro-divide">/</span>
             <div class="task__pomodoro-total">
               <svg aria-hidden="true">
@@ -118,5 +118,11 @@ export class TaskListView {
         handler(taskID);
       }
     });
+  }
+
+  updatePomodoroCount(task) {
+    this.wrapper.querySelector(
+      `[data-id="${task.id}"] .task__pomodoro-done`,
+    ).textContent = task.pomodoroDone;
   }
 }

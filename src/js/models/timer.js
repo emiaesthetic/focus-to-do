@@ -1,6 +1,7 @@
 export class Timer {
   static #instance;
   #breakCounter = 1;
+  #observers = [];
 
   constructor(taskDuration, shortBreak, longBreak, longBreakAfter) {
     if (Timer.#instance) {
@@ -52,11 +53,6 @@ export class Timer {
     this.paused = false;
   }
 
-  calculateProgress(timestamp, startTime, duration) {
-    const elapsed = timestamp - startTime;
-    return elapsed > duration ? 1 : elapsed / duration;
-  }
-
   resetAnimation() {
     this.angle = 0;
     this.lastAngle = 0;
@@ -78,5 +74,17 @@ export class Timer {
 
   resetBreakCounter() {
     this.#breakCounter = 1;
+  }
+
+  subscribe(observer) {
+    this.#observers.push(observer);
+  }
+
+  unsubscribe(observer) {
+    this.#observers.filter(item => item !== observer);
+  }
+
+  notify(newSettings) {
+    this.#observers.forEach(observer => observer(newSettings));
   }
 }

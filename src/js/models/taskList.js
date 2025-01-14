@@ -1,9 +1,10 @@
 class Task {
-  constructor({ id, name, counter, priority }) {
+  constructor({ id, name, counter, priority, pomodoroDone }) {
     this.id = id || this.#generateUniqueID();
     this.name = name;
     this.counter = counter;
     this.priority = priority;
+    this.pomodoroDone = pomodoroDone || 0;
   }
 
   #generateUniqueID() {
@@ -12,6 +13,10 @@ class Task {
       .substring(2, 11)
       .replace(/^0+/, '')
       .padEnd(9, '0');
+  }
+
+  incrementPomodoroCount() {
+    this.pomodoroDone += 1;
   }
 }
 
@@ -46,7 +51,7 @@ export class TaskList {
     );
   }
 
-  getTask(id) {
+  getCurrentTask(id) {
     return this.tasks.find(task => task.id === id);
   }
 
@@ -60,5 +65,15 @@ export class TaskList {
   removeTask(taskID) {
     this.tasks = this.tasks.filter(task => task.id !== taskID);
     this.#removeTask(taskID);
+  }
+
+  updatePomodoroDone() {
+    const tasks = this.#getTasks();
+    tasks.forEach(task => {
+      if (task.id === this.currentTask.id) {
+        task.pomodoroDone += 1;
+      }
+    });
+    localStorage.setItem(this.#storageKey, JSON.stringify(tasks));
   }
 }

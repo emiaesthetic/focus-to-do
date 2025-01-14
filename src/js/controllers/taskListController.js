@@ -11,11 +11,14 @@ export class TaskListController {
 
     this.settings = new SettingsController();
     this.settings.init();
-
-    this.timer = new TimerController(this.settings.model);
     this.settings.model.subscribe(newSettings =>
       this.timer.update(newSettings),
     );
+
+    this.timer = new TimerController(this.settings.model);
+    this.timer.model.subscribe(() => {
+      this.updateTasks();
+    });
 
     this.view.bindRemoveTask(this.removeTask.bind(this));
     this.view.bindStartTask(this.startTask.bind(this));
@@ -35,8 +38,14 @@ export class TaskListController {
   }
 
   startTask(taskID) {
-    const task = this.model.getTask(taskID);
-    this.timer.startTask(task);
+    this.model.currentTask = this.model.getCurrentTask(taskID);
+    this.timer.startTask(this.model.currentTask);
+  }
+
+  updateTasks() {
+    this.model.updatePomodoroDone();
+    this.model.currentTask.incrementPomodoroCount();
+    this.view.updatePomodoroCount(this.model.currentTask);
   }
 
   init() {

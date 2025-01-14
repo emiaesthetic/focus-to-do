@@ -56,11 +56,9 @@ export class TimerController {
       }
 
       startTime ||= timestamp;
-      const progress = this.model.calculateProgress(
-        timestamp,
-        startTime,
-        duration,
-      );
+      const elapsed = timestamp - startTime;
+      const progress = elapsed > duration ? 1 : elapsed / duration;
+
       this.model.angle =
         progress * (360 - this.model.lastAngle) + this.model.lastAngle;
       this.view.updateAngle(this.model.angle);
@@ -89,7 +87,7 @@ export class TimerController {
   }
 
   stop() {
-    this.model.resetAnimation();
+    this.model.resetState();
     this.view.updateAngle(this.model.angle);
   }
 
@@ -106,7 +104,9 @@ export class TimerController {
   }
 
   handleTaskCompletion() {
+    this.model.notify();
     this.model.resetState();
+    this.view.highlightAlarm();
     this.view.updateBtn('done');
 
     if (this.model.getIncrementCounter() % this.model.longBreakAfter === 0) {

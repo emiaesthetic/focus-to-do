@@ -4,7 +4,7 @@ export class TimerView {
   constructor() {
     this.timer = document.querySelector('.timer');
     this.overlay = this.timer.closest('.overlay');
-    this.title = this.timer.querySelector('.timer__title');
+    this.header = this.timer.querySelector('.timer__header');
     this.progress = this.timer.querySelector('.timer__progress');
     this.time = this.timer.querySelector('.timer__time');
     this.button = this.timer.querySelector('.timer__button');
@@ -110,12 +110,62 @@ export class TimerView {
     }
   }
 
+  renderTitle(text) {
+    const h2 = document.createElement('h2');
+    h2.className = 'timer__title';
+    h2.textContent = text;
+    this.header.append(h2);
+  }
+
+  renderPomodoroCounter(counter, pomodoroDone) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'timer__pomodoro-counter';
+
+    for (let i = 1; i <= +counter; i++) {
+      const pomodoro = document.createElement('span');
+      pomodoro.className = 'timer__pomodoro-alarm';
+      pomodoro.innerHTML = `
+        <svg aria-hidden="true">
+          <use href="img/sprite.svg#alarm"></use>
+        </svg>
+      `;
+
+      if (i <= +pomodoroDone) {
+        pomodoro.classList.add('timer__pomodoro-alarm--is-active');
+      }
+
+      wrapper.append(pomodoro);
+    }
+
+    this.header.append(wrapper);
+  }
+
   render(task, startTime) {
     this.open();
-    this.title.textContent = task.name;
     this.updateTime(startTime);
+
+    this.header.innerHTML = '';
+    this.renderTitle(task.name);
+    this.renderPomodoroCounter(task.counter, task.pomodoroDone);
+
     this.#lastFocusedElement = document.querySelector(
       `[data-id="${task.id}"] .task__start >  .task__button`,
     );
+  }
+
+  highlightAlarm() {
+    const activeAlarms = this.timer.querySelectorAll(
+      '.timer__pomodoro-alarm--is-active',
+    );
+
+    if (activeAlarms.length > 0) {
+      const lastActiveAlarm = activeAlarms[activeAlarms.length - 1];
+      const nextAlarm = lastActiveAlarm.nextElementSibling;
+      nextAlarm?.classList.add('timer__pomodoro-alarm--is-active');
+      return;
+    }
+
+    const firstAlarm = this.timer.querySelector('.timer__pomodoro-alarm');
+    firstAlarm.classList.add('timer__pomodoro-alarm--is-active');
   }
 }
