@@ -8,6 +8,7 @@ export class SelectView {
       itemSelectText: '',
       shouldSort: false,
       shouldSortItems: false,
+      removeItemButton: true,
       callbackOnCreateTemplates: template => {
         return {
           choice: (_, data) => {
@@ -81,5 +82,6 @@ export class SelectView {
 
   reset() {
     this.choices.setChoiceByValue('no-priority');
+    this.choices.hideDropdown();
   }
 }
