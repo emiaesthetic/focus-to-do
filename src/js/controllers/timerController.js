@@ -8,7 +8,6 @@ export class TimerController {
 
     this.view.bindPause(this.pause.bind(this));
     this.view.bindContinue(this.continue.bind(this));
-    this.view.bindStop(this.stop.bind(this));
     this.view.bindDone(this.done.bind(this));
     this.view.bindStart(this.start.bind(this));
   }
@@ -32,8 +31,11 @@ export class TimerController {
       this.view.updateTime(this.model.timeToString(this.model.timeRemaining));
 
       if (this.model.timeRemaining <= 0) {
-        this.view.playSound();
         clearInterval(intervalID);
+
+        if (!this.model.paused) {
+          this.view.playSound();
+        }
 
         if (onComplete === 'task') {
           this.handleTaskCompletion();
@@ -73,6 +75,7 @@ export class TimerController {
 
   start() {
     this.model.resetState();
+    this.view.updateAngle(this.model.angle);
     this.startTimer(this.model.taskDuration);
     this.view.updateTime(this.model.timeToString(this.model.taskDuration));
   }
@@ -86,11 +89,6 @@ export class TimerController {
     this.startTimer(this.model.timeRemaining);
   }
 
-  stop() {
-    this.model.resetState();
-    this.view.updateAngle(this.model.angle);
-  }
-
   done() {
     this.model.setPause();
     this.model.resetAnimation();
@@ -98,9 +96,9 @@ export class TimerController {
     this.view.updateTime(this.model.timeToString(this.model.taskDuration));
   }
 
-  startTask(task, onComplete) {
+  startTask(task) {
     this.view.render(task, this.model.timeToString(this.model.taskDuration));
-    this.startTimer(this.model.taskDuration, onComplete);
+    this.start();
   }
 
   handleTaskCompletion() {

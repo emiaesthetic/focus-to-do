@@ -71,7 +71,7 @@
                     </svg>
                   </button>
 
-                  <div class="counter__popup" aria-haspopup="true" aria-expanded="false">
+                  <div class="counter__popup" role="dialog" aria-haspopup="true" aria-expanded="false">
                     <button
                       class="counter__button counter__decrease button button--accent"
                       type="button"
@@ -194,6 +194,9 @@
   <div class="overlay" aria-hidden="true" role="dialog" aria-label="Timer">
     <div class="overlay__container container">
       <div class="timer">
+        <button class="timer__close-button button button--cross" type="button">
+          <span class="visually-hidden">Close timer</span>
+        </button>
         <div class="timer__header"></div>
         <div class="timer__content">
           <div class="timer__progress">

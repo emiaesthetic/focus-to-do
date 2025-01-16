@@ -4,27 +4,43 @@ export class TimerView {
   constructor() {
     this.timer = document.querySelector('.timer');
     this.overlay = this.timer.closest('.overlay');
+    this.container = this.timer.closest('.overlay__container');
     this.header = this.timer.querySelector('.timer__header');
     this.progress = this.timer.querySelector('.timer__progress');
     this.time = this.timer.querySelector('.timer__time');
+    this.closeBtn = this.timer.querySelector('.timer__close-button');
     this.button = this.timer.querySelector('.timer__button');
     this.stopBtn = this.timer.querySelector('.timer__button:nth-child(2)');
     this.audio = new Audio('../audio/ding.mp3');
 
     this.button.addEventListener('click', this.handleBtnClick.bind(this));
     this.stopBtn.addEventListener('click', this.handleStopBtnClick.bind(this));
+    this.closeBtn.addEventListener('click', () => {
+      this.handleCrossBtnClick();
+    });
+    this.overlay.addEventListener('click', ({ target }) => {
+      if (target === this.overlay || target === this.container) {
+        this.handleCrossBtnClick();
+      }
+    });
   }
 
   open() {
     this.overlay.classList.add('overlay--is-open');
     this.overlay.setAttribute('aria-hidden', 'false');
-    this.button.focus();
+    this.closeBtn.focus();
   }
 
   close() {
     this.overlay.classList.remove('overlay--is-open');
     this.overlay.setAttribute('aria-hidden', 'true');
     this.#lastFocusedElement.focus();
+  }
+
+  handleCrossBtnClick() {
+    this.updateBtn('pause');
+    this.pause();
+    this.close();
   }
 
   updateAngle(angle) {
@@ -49,10 +65,6 @@ export class TimerView {
 
   bindContinue(handler) {
     this.continue = handler;
-  }
-
-  bindStop(handler) {
-    this.stop = handler;
   }
 
   bindDone(handler) {
@@ -99,13 +111,14 @@ export class TimerView {
   handleStopBtnClick() {
     this.hideStopButton();
     this.updateBtn('pause');
-    this.stop();
+    this.pause();
     this.close();
   }
 
   updateBtn(state) {
-    if (typeof state === 'string') {
-      this.button.textContent = state.toLocaleUpperCase();
+    if (typeof state === 'string' && state.length > 0) {
+      this.button.textContent =
+        state[0].toLocaleUpperCase() + state.slice(1).toLocaleLowerCase();
       this.button.dataset.state = state.toLocaleLowerCase();
     }
   }
