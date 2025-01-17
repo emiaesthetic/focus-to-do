@@ -1,0 +1,130 @@
+@use '../abstracts/mixins' as mixins;
+@use '../abstracts/media' as media;
+
+.settings {
+  position: relative;
+  max-width: 36rem;
+  width: 100%;
+  padding: 3.75rem 2.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-xlg);
+  color: var(--text-primary);
+  background-color: var(--background-primary);
+  backdrop-filter: var(--blur);
+
+  @include media.tablet {
+    max-width: 32rem;
+    padding: 3.25rem 2rem;
+  }
+
+  @include media.mobile {
+    max-width: 28rem;
+    padding: 2.75rem 1.75rem;
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+
+    @include media.tablet {
+      top: 1.125rem;
+      right: 1.125rem;
+    }
+
+    @include media.mobile {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+
+  &__content {
+    @include mixins.flex-center();
+    flex-direction: column;
+    row-gap: 2.25rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+
+    @include media.tablet {
+      row-gap: 1.875rem;
+    }
+
+    @include media.mobile {
+      row-gap: 1.5rem;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    padding-bottom: 2.25rem;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--fonts-size-lg);
+    text-align: center;
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    gap: 2rem 3rem;
+
+    @include media.tablet {
+      gap: 1.75rem 2.5rem;
+    }
+
+    @include media.mobile {
+      gap: 1.5rem 2rem;
+    }
+  }
+
+  &__label {
+    display: contents;
+    font-size: var(--font-size-md);
+  }
+
+  &__input {
+    max-width: 15rem;
+    width: 100%;
+    justify-self: end;
+    padding: 0.75rem;
+    padding-left: 1.5rem;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-regular);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
+    background-color: var(--background-primary);
+    @include mixins.transition(box-shadow);
+
+    @include mixins.hover {
+      box-shadow: var(--box-shadow);
+    }
+
+    @include mixins.focus {
+      outline: var(--outline);
+      outline-offset: var(--outline-offset);
+    }
+
+    &::placeholder {
+      color: var(--text-placeholder);
+    }
+  }
+
+  &__save-button {
+    width: unset;
+    height: unset;
+    padding: 0.75rem 1.75rem;
+    font-size: var(--font-size-md);
+    text-transform: uppercase;
+
+    @include media.tablet {
+      padding: 0.625rem 1.5rem;
+    }
+
+    @include media.mobile {
+      padding: 0.5rem 1.25rem;
+    }
+  }
+}

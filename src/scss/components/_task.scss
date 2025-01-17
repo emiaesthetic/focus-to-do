@@ -1,0 +1,123 @@
+@use '../abstracts/media' as media;
+
+.tasks {
+  width: 100%;
+  border-spacing: 0 0.75rem;
+
+  @include media.mobile {
+    border-spacing: 0 0.5rem;
+  }
+}
+
+.task {
+  --padding: 0.5rem;
+  --padding-left: 1.5rem;
+  --padding-right: 1.5rem;
+
+  font-size: var(--font-size-md);
+  background-color: var(--background-primary);
+
+  @include media.tablet {
+    --padding: 0.425rem;
+    --padding-left: 1.25rem;
+    --padding-right: 1.25rem;
+  }
+
+  @include media.mobile {
+    --padding: 0.325rem;
+    --padding-left: 1rem;
+    --padding-right: 1rem;
+  }
+
+  &__data {
+    padding: var(--padding);
+    border: 1px solid var(--border-color);
+
+    &:first-child {
+      padding-left: var(--padding-left);
+      border-right: none;
+      border-top-left-radius: var(--border-radius-lg);
+      border-bottom-left-radius: var(--border-radius-lg);
+    }
+
+    &:last-child {
+      padding-right: var(--padding-right);
+      border-left: none;
+      border-top-right-radius: var(--border-radius-lg);
+      border-bottom-right-radius: var(--border-radius-lg);
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-left: none;
+      border-right: none;
+    }
+
+    & svg {
+      width: 50%;
+    }
+  }
+
+  &__description {
+    width: 100%;
+  }
+
+  &__name {
+    margin-bottom: 0.375rem;
+  }
+
+  &__pomodoro {
+    --width: 1.25rem;
+    --height: 1.25rem;
+    --column-gap: 0.5rem;
+
+    display: inline-flex;
+    align-items: center;
+    column-gap: var(--column-gap);
+    font-size: var(--font-size-base);
+
+    @include media.tablet {
+      --width: 1.125em;
+      --height: 1.125rem;
+      --column-gap: 0.375rem;
+    }
+
+    @include media.mobile {
+      --width: 1rem;
+      --height: 1rem;
+      --column-gap: 0.325rem;
+    }
+
+    & &-priority {
+      width: var(--width);
+      height: var(--height);
+    }
+
+    &-total {
+      display: inline-flex;
+      align-items: center;
+      column-gap: var(--column-gap);
+
+      & svg {
+        width: var(--width);
+        height: var(--height);
+        color: var(--text-accent);
+      }
+    }
+  }
+}
+
+.high {
+  color: var(--high);
+}
+
+.medium {
+  color: var(--medium);
+}
+
+.low {
+  color: var(--low);
+}
+
+.no-priority {
+  color: var(--no-priority);
+}

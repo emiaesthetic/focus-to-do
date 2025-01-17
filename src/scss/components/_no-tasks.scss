@@ -1,0 +1,10 @@
+.no-tasks {
+  display: flex;
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+
+  & img {
+    width: 100%;
+  }
+}

@@ -1,0 +1,73 @@
+@mixin flex-center($isInline: false) {
+  @if $isInline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin focus() {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    @content;
+  }
+}
+
+@mixin hover($condition: true) {
+  @if $condition == true {
+    @media (hover: hover) {
+      &:hover {
+        @content;
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin text-truncate($rows: 1) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $rows;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin transition($properties...) {
+  $duration: 0.2s;
+  $timing: ease-in-out;
+
+  transition-property: $properties;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+}
+
+@mixin transparent-overlay() {
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-color: var(--background-primary);
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}

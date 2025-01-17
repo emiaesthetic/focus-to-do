@@ -1,0 +1,97 @@
+:root {
+  /* Container */
+  --container-width: 64rem;
+  --container-padding-x: 1.25rem;
+
+  /* Fonts */
+  --font-family: 'Kanit', sans-serif;
+  --font-family-mono: 'JetBrains Mono', monospace;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  --font-size-base: 1rem;
+  --font-size-md: 1.25rem;
+  --fonts-size-lg: 2.5rem;
+
+  /* Colors */
+  --gray-light: rgb(255 255 255 / 0.7);
+  --gray: rgb(255 255 255 / 0.25);
+  --gray-dark: rgb(255 255 255 / 0.125);
+
+  --accent: rgb(140 140 255 / 0.7);
+  --high: rgb(255 78 78 / 0.7);
+  --medium: rgb(255 255 59 / 0.6);
+  --low: rgb(118 255 118 / 0.6);
+  --no-priority: var(--gray);
+
+  --text-primary: var(--gray-light);
+  --text-placeholder: var(--gray);
+  --text-accent: var(--accent);
+
+  --background-primary: var(--gray-dark);
+  --background-secondary: #292d32;
+  --background-accent: var(--accent);
+  --background-linear-gradient: linear-gradient(
+    75deg,
+    rgba(202 184 255) 0%,
+    rgba(174 162 255) 100%
+  );
+
+  --border-color: rgb(0 0 0 / 0.1);
+
+  --checkbox-border-color: var(--accent);
+  --checkbox-checked-color: var(--gray-light);
+
+  --box-shadow: 0 0 10px var(--accent);
+  --drop-shadow: drop-shadow(0 0 6px var(--accent));
+  --blur: blur(30px);
+
+  /* Border-radius */
+  --border-radius-xlg: 2.25rem;
+  --border-radius-lg: 1.5rem;
+  --border-radius-md: 1rem;
+  --border-radius-sm: 0.75rem;
+  --border-radius-xsm: 0.5rem;
+
+  /* Outline */
+  --outline: 2px solid var(--gray-light);
+  --outline-offset: 1px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    /* Fonts */
+    --font-size-base: 0.925rem;
+    --font-size-md: 1.125rem;
+    --fonts-size-lg: 2.25rem;
+
+    /* Border-radius */
+    --border-radius-xlg: 2rem;
+    --border-radius-lg: 1.25rem;
+    --border-radius-md: 0.75rem;
+    --border-radius-sm: 0.625rem;
+    --border-radius-xsm: 0.425rem;
+
+    /* Outline */
+    --outline-offset: 0.5px;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    /* Fonts */
+    --font-size-base: 0.875rem;
+    --font-size-md: 1rem;
+    --fonts-size-lg: 2rem;
+
+    /* Border-radius */
+    --border-radius-xlg: 1.75rem;
+    --border-radius-lg: 1rem;
+    --border-radius-md: 0.625rem;
+    --border-radius-sm: 0.5rem;
+
+    /* Outline */
+    --outline-offset: 0;
+  }
+}

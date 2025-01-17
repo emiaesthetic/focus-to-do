@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as mixins;
+
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -10,9 +12,13 @@ html {
 }
 
 body {
-  min-width: 320px;
+  min-width: 36rem;
   min-height: 100vh;
-  background-color: #333;
+  height: 100%;
+  background-image: url(../img/background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow-x: hidden;
 }
 

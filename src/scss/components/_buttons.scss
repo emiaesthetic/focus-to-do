@@ -1,0 +1,97 @@
+@use '../abstracts/mixins' as mixins;
+@use '../abstracts/media' as media;
+
+.button {
+  --button-width: 3rem;
+  --button-height: 3rem;
+
+  @include mixins.flex-center(true);
+  width: var(--button-width);
+  height: var(--button-height);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+  white-space: nowrap;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  color: var(--text-accent);
+  background-color: transparent;
+  @include mixins.transition(filter);
+
+  @include media.tablet {
+    --button-width: 2.75rem;
+    --button-height: 2.75rem;
+  }
+
+  @include media.mobile {
+    --button-width: 2.5rem;
+    --button-height: 2.5rem;
+  }
+
+  @include mixins.hover {
+    box-shadow: unset;
+
+    svg {
+      filter: var(--drop-shadow);
+    }
+  }
+
+  @include mixins.focus {
+    outline: var(--outline);
+    outline-offset: var(--outline-offset);
+  }
+
+  &--accent {
+    color: var(--text-primary);
+    background-color: var(--background-accent);
+    @include mixins.transition(--box-shadow);
+
+    @include mixins.hover {
+      box-shadow: var(--box-shadow);
+    }
+  }
+
+  &--settings {
+    & svg {
+      width: 75%;
+      height: 75%;
+      fill: var(--accent);
+      stroke: var(--gray-dark);
+    }
+  }
+
+  &--cross {
+    position: relative;
+
+    @include mixins.hover {
+      &:before,
+      &:after {
+        box-shadow: var(--box-shadow);
+      }
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 47%;
+      left: 5.5px;
+      width: 75%;
+      height: 5px;
+      border-radius: var(--border-radius-sm);
+      background-color: currentColor;
+
+      @include media.mobile {
+        left: 5px;
+        height: 4px;
+      }
+    }
+
+    &:before {
+      rotate: 45deg;
+    }
+
+    &:after {
+      rotate: -45deg;
+    }
+  }
+}

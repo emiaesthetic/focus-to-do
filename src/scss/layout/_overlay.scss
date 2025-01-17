@@ -1,0 +1,27 @@
+@use '../abstracts/mixins' as mixins;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  scale: 0.5;
+  color: var(--text-primary);
+  background-image: url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &--is-open {
+    visibility: visible;
+    opacity: 1;
+    scale: 1;
+  }
+
+  &__container {
+    @include mixins.flex-center();
+    height: 100%;
+  }
+}
